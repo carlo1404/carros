@@ -1,0 +1,131 @@
+/* estilos/iniciar-sesion.css */
+
+/* Estandarizo estilos */
+html {
+    /* margin: 0; */
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 1.6rem; /* Establece el tamaño de fuente base para el body */
+}
+
+/* Header */
+.header {
+    background-color: #222;
+    color: #fff;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    height: 4rem;
+}
+
+.header__home-link {
+    display: block;
+    text-decoration: none;
+}
+
+.header__home-icon {
+    height: 4rem;
+}
+
+/* Login Main */
+.login {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+}
+
+.login__form {
+    background-image: linear-gradient(to top, #B3B3B3 0.1%, #5A5A5A 30%);    
+    padding: 6rem 4rem;
+    border-radius: 12px;
+    text-align: center;
+    width: 100%;
+    max-width: 40rem;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+} @media(width < 768px) {
+    .login__form {
+        width: 100%;
+        height: 40rem;
+        padding: 6rem 2rem;
+    }
+}
+
+.login__logo {
+    height: 6rem;
+    margin-bottom: 2rem;
+}
+
+.login__input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #444;
+    color: #fff;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+}
+
+.login__input::placeholder {
+    color: #ccc;
+    font-size: 1.6rem;
+}
+
+.login__input:focus {
+    outline: none;
+    border:1px solid #ccc;
+}
+
+.login__button {
+    background-color: white;
+    color: #000;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.login__button:hover {
+    background-color: #565656;
+    color: #fff;
+}
+
+/* Footer */
+.footer {
+    background-color: #555;
+    height: 6rem;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+
