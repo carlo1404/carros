@@ -25,6 +25,6 @@
             <button type="submit" class="login__button">Iniciar Sesión</button>
         </form>
     </main>
-    <footer class="footer"></footer>
+    
 </body>
 </html>
