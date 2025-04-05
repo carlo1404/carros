@@ -17,7 +17,7 @@
             </div>
             <div class="header__logo-group">
                 <h1 class="header__title">NOMBRE__CONCESIONARIO</h1>
-                <img src="img/car-sports-svgrepo-com.svg" alt="Icono de auto" class="header__car-image">
+                <img src="../img/car-sports-svgrepo-com.svg" alt="Icono de auto" class="header__car-image">
             </div>
             
             <div class="header__buttons">
@@ -30,7 +30,7 @@
     <main class="container">
         <div class="product">
             <div class="product__image-container">
-                <img src="img/Corolla-SEG-400x400-2.png" alt="Imagen del vehículo" class="product__image">
+                <img src="../img/Corolla-SEG-400x400-2.png" alt="Imagen del vehículo" class="product__image">
             </div>
             <div class="product__info">
                 <div class="product__info-row">
@@ -73,7 +73,7 @@
         <div class="container footer__container">
             <div class="footer__section">
                 <div class="footer__icon">
-                    <img src="img/steering-wheel-svgrepo-com.svg" alt="Icono de volante" class="footer__icon-image">
+                    <img src="../img/steering-wheel-svgrepo-com.svg" alt="Icono de volante" class="footer__icon-image">
                 </div>
                 <div class="footer__text">TEST DRIVE</div>
             </div>
@@ -83,13 +83,13 @@
                     <div class="footer__text">NOMBRE__CONCESIONARIO</div>
                 </div>
                 <div class="footer__car-icon">
-                    <img src="img/car-sports-svgrepo-com.svg" alt="Icono de auto" class="footer__icon-image">
+                    <img src="../img/car-sports-svgrepo-com.svg" alt="Icono de auto" class="footer__icon-image">
                 </div>
             </div>
 
             <div class="footer__section">
                 <div class="footer__icon">
-                    <img src="img/phone-svgrepo-com.svg" alt="Icono de teléfono" class="footer__icon-image">
+                    <img src="../img/phone-svgrepo-com.svg" alt="Icono de teléfono" class="footer__icon-image">
                 </div>
                 <div class="footer__text">CONTACTANOS</div>
             </div>
