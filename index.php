@@ -58,7 +58,7 @@
             <p>$ 000.000.000</p>
             <p>Descripción Detallada</p>
             <button class="boton__comprar">
-                <img src="img/shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Comprar"> Comprar
+                <img src="img/carrito-añadir.svg" alt="Comprar"> Agregar
             </button>
         </div>
         <img class="vehiculo__imagen" src="img/bmw_PNG99543.png" alt="Vehículo">
@@ -72,7 +72,7 @@
             <p>$ 000.000.000</p>
             <p>Descripción Detallada</p>
             <button class="boton__comprar">
-                <img src="img/shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Comprar"> Comprar
+                <img src="img/carrito-añadir.svg" alt="Comprar"> Agregar
             </button>
         </div>
         <img class="vehiculo__imagen" src="img/chevrolet.png" alt="Vehículo">
