@@ -402,7 +402,7 @@ body {
 .video__titulo {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: #fff;
 }
 
 .video__contenedor {
@@ -421,4 +421,35 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* styles de mensaje de agregado */
+.agregado__contenedor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.mensaje-agregado {
+    display: none;
+    color: green;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.mensaje-agregado.mostrar {
+    display: inline-block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

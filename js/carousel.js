@@ -81,3 +81,21 @@ document.addEventListener("DOMContentLoaded", () => {
         track.style.transform = 'translateX(-' + currentSlide.style.left + ')';
     });
 });
+
+// Agregar mensaje de agregado al botón de comprar
+document.addEventListener('DOMContentLoaded', () => {
+    const botones = document.querySelectorAll('.boton__comprar');
+
+    botones.forEach(boton => {
+        boton.addEventListener('click', () => {
+            const mensaje = boton.parentElement.querySelector('.mensaje-agregado');
+            mensaje.textContent = "✅ Agregado al carrito";
+            mensaje.classList.add('mostrar');
+
+            // Ocultarlo luego de 3 segundos
+            setTimeout(() => {
+                mensaje.classList.remove('mostrar');
+            }, 3000);
+        });
+    });
+});
