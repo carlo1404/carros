@@ -325,3 +325,68 @@ body {
     margin-top: 2rem;
     font-weight: bold;
 }
+
+/* Sección de vehículos en oferta y venta */
+.vehiculos__seccion {
+    background-color: #111;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.vehiculo__card {
+    display: flex;
+    justify-content: space-between;
+    background-color: #dcdcdc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.vehiculo__info {
+    padding: 1.5rem;
+    flex: 1;
+    font-family: 'Arial', sans-serif;
+}
+
+.vehiculo__info h3 {
+    font-family: 'Impact', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.vehiculo__info p {
+    margin: 0.5rem 0;
+}
+
+.vehiculo__imagen {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+.boton__comprar {
+    margin-top: 1rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    gap: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.boton__comprar:hover {
+    background-color: #333;
+}
+
+.boton__comprar img {
+    width: 2rem;
+    height: 2rem;
+}

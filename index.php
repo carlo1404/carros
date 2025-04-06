@@ -50,6 +50,34 @@
     <!-- Título para la sección de ventas, ahora fuera del carrusel -->
     <h2 class="carousel__title">TÍTULO PARA SECCIÓN DE VENTAS</h2>
     <!-- secciones de carros en oferta y venta -->
+    <section class="vehiculos__seccion">
+    <div class="vehiculo__card">
+        <div class="vehiculo__info">
+            <h3>REFERENCIA VEHÍCULO</h3>
+            <p><strong>Precio sugerido desde</strong></p>
+            <p>$ 000.000.000</p>
+            <p>Descripción Detallada</p>
+            <button class="boton__comprar">
+                <img src="img/shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Comprar"> Comprar
+            </button>
+        </div>
+        <img class="vehiculo__imagen" src="img/bmw_PNG99543.png" alt="Vehículo">
+    </div>
+
+    <!-- Puedes duplicar esta tarjeta y cambiar imagen y texto -->
+    <div class="vehiculo__card">
+        <div class="vehiculo__info">
+            <h3>REFERENCIA VEHÍCULO</h3>
+            <p><strong>Precio sugerido desde</strong></p>
+            <p>$ 000.000.000</p>
+            <p>Descripción Detallada</p>
+            <button class="boton__comprar">
+                <img src="img/shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Comprar"> Comprar
+            </button>
+        </div>
+        <img class="vehiculo__imagen" src="img/chevrolet.png" alt="Vehículo">
+    </div>
+</section>
     
 </main>
 
