@@ -49,11 +49,25 @@
 
     <!-- Título para la sección de ventas, ahora fuera del carrusel -->
     <h2 class="carousel__title">TÍTULO PARA SECCIÓN DE VENTAS</h2>
+    <!-- secciones de carros en oferta y venta -->
+    
 </main>
 
         <!-- llamamos el script para el carrusel -->
             <script src="js/carousel.js"></script>
 
+            <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menu-toggle');
+        const dropdown = document.querySelector('.header__dropdown');
+
+        menuToggle.addEventListener('click', () => {
+            console.log("click!");
+            
+            dropdown.classList.toggle('active');
+        });
+    });
+            </script>
     <?php include 'php/include/footer.php'; ?>
 </body>
 </html>

@@ -102,6 +102,27 @@ body {
     color: black;
 }
 
+/* Menú desplegable del header */
+.header__dropdown {
+    display: none;
+    background-color: red;
+    padding: 10px;
+    color: white;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    z-index: 999;
+}
+
+.header__dropdown.active {
+    display: block;
+}
+
+.dropdown__cart img {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
 /* footer */
 .footer {
     background-color: #000;
