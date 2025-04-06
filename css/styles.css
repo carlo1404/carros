@@ -138,6 +138,31 @@ body {
 
 }
 
+.carrito__enlace {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+.carrito__contador {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #ff4081;
+    color: white;
+    font-size: 13px;
+    padding: 4px 8px;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.cerrar__sesion:hover {
+    color: #ff4081;
+    font-weight: bold;
+}
 /* footer */
 .footer {
     background-color: #000;
@@ -407,11 +432,15 @@ body {
 
 .video__contenedor {
     position: relative;
-    padding-top: 56.25%; /* relación 16:9 para video responsivo */
+    width: 100%;
+    max-width: 70rem; /* <-- Cambia este valor a tu gusto */
+    margin: 0 auto;   /* Para centrarlo */
+    padding-top: 56.25%; /* Mantiene relación 16:9 */
     height: 0;
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding-top: 30%;
 }
 
 .video__contenedor video {
@@ -423,12 +452,14 @@ body {
     object-fit: cover;
 }
 
-.video__contenedor {
-    max-height: 30rem; /* Ajusta este valor según lo que necesites */
-}
+@media (max-width: 768px) {
+    .video__contenedor {
+        padding-top: 56.25%;
+    }
 
-.video__contenedor video {
-    object-fit: contain; /* Alternativa: 'cover' recorta, 'contain' ajusta */
+    .video__titulo {
+        font-size: 1.5rem;
+    }
 }
 
 /* styles de mensaje de agregado */
