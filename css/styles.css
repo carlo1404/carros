@@ -423,6 +423,14 @@ body {
     object-fit: cover;
 }
 
+.video__contenedor {
+    max-height: 30rem; /* Ajusta este valor según lo que necesites */
+}
+
+.video__contenedor video {
+    object-fit: contain; /* Alternativa: 'cover' recorta, 'contain' ajusta */
+}
+
 /* styles de mensaje de agregado */
 .agregado__contenedor {
     display: flex;
