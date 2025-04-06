@@ -390,3 +390,35 @@ body {
     width: 2rem;
     height: 2rem;
 }
+
+/* video */
+.video__seccion {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.video__titulo {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.video__contenedor {
+    position: relative;
+    padding-top: 56.25%; /* relación 16:9 para video responsivo */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video__contenedor video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,264 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333435;
+}
+
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    height: 154px;
+    background: linear-gradient(to right, #000000, #5B5B5B, #525252);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: relative;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.brand-name {
+    font-family: 'Zen Dots', cursive;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.logo-left {
+    width: 218.88px;
+    height: 62.05px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-weight: bold;
+}
+
+.center-section {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.title {
+    font-size: 32px;
+    color: white;
+    font-weight: bold;
+}
+
+.right-section {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logo-right {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+
+/* Secion */
+.progress-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 50px;
+}
+
+.progress-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    width: 20%;
+}
+
+.progress-line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-bottom: 15px;
+}
+
+.progress-text {
+    color: white;
+    font-family: 'Jersey M54', sans-serif;
+    font-size: 20px;
+    text-align: left;
+    letter-spacing: 1px;
+    padding-left: 2px; 
+}
+
+
+/* Compras */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    padding: 40px 20px;
+}
+
+.car-card {
+    width: 468px;
+    height: 475px;
+    background: linear-gradient(to bottom, #B3B3B3, #5a5a5a);
+    box-shadow: inset 5px 5px 10px rgba(255, 255, 255, 0.3), 
+                inset -5px -5px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.card-title {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.car-image {
+    width: 370px;
+    height: 216px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    background-color: #777;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 16px;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-item {
+    color: white;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+
+.button-container {
+    position: absolute;
+    left: 50px;
+    bottom: 10px;
+}
+
+.back-button {
+    width: 147px;
+    height: 41px;
+    background: linear-gradient(to right, #B3B3B3, #5A5A5A);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.back-button:active {
+    transform: translateY(0);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Media queries para hacer todo responsive */
+@media (max-width: 1200px) {
+    .button-container {
+        left: calc(50% - 347px); 
+    }
+}
+
+@media (max-width: 1024px) {
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .car-card {
+        width: 100%;
+        max-width: 468px;
+    }
+    
+    .car-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 463/216;
+    }
+    
+    .button-container {
+        position: static; 
+        margin: 20px 0 0 50px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+    }
+    
+    .left-section, .center-section, .right-section {
+        position: static;
+        transform: none;
+        margin: 10px 0;
+    }
+    
+    .title {
+        font-size: 24px;
+    }
+    
+    .progress-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .progress-item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .button-container {
+        margin: 20px 0 0 20px;
+    }
+}

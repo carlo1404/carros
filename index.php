@@ -49,6 +49,8 @@
 
     <!-- Título para la sección de ventas, ahora fuera del carrusel -->
     <h2 class="carousel__title">TÍTULO PARA SECCIÓN DE VENTAS</h2>
+
+
     <!-- secciones de carros en oferta y venta -->
     <section class="vehiculos__seccion">
     <div class="vehiculo__card">
@@ -78,6 +80,47 @@
         <img class="vehiculo__imagen" src="img/chevrolet.png" alt="Vehículo">
     </div>
 </section>
+
+<!-- sigue un video  -->
+<section class="video__seccion">
+    <h2 class="video__titulo">Descubre Más Sobre Nuestra Tecnología</h2>
+    <div class="video__contenedor">
+        <video autoplay muted loop playsinline poster="img/preview.jpg">
+            <source src="img/video-anuncio.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+    </div>
+</section>
+<!-- otras dos seccinoes de carros -->
+<section class="vehiculos__seccion">
+    <div class="vehiculo__card">
+        <div class="vehiculo__info">
+            <h3>REFERENCIA VEHÍCULO</h3>
+            <p><strong>Precio sugerido desde</strong></p>
+            <p>$ 000.000.000</p>
+            <p>Descripción Detallada</p>
+            <button class="boton__comprar">
+                <img src="img/carrito-añadir.svg" alt="Comprar"> Agregar
+            </button>
+        </div>
+        <img class="vehiculo__imagen" src="img/cadillac_PNG.png" alt="Vehículo">
+    </div>
+
+    <!-- Puedes duplicar esta tarjeta y cambiar imagen y texto -->
+    <div class="vehiculo__card">
+        <div class="vehiculo__info">
+            <h3>REFERENCIA VEHÍCULO</h3>
+            <p><strong>Precio sugerido desde</strong></p>
+            <p>$ 000.000.000</p>
+            <p>Descripción Detallada</p>
+            <button class="boton__comprar">
+                <img src="img/carrito-añadir.svg" alt="Comprar"> Agregar
+            </button>
+        </div>
+        <img class="vehiculo__imagen" src="img/lamborghini_.png" alt="Vehículo">
+    </div>
+</section>
+
     
 </main>
 

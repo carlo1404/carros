@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Auto slide cada 5 segundos
-    let slideInterval = setInterval(goToNextSlide, 5000);
+    let slideInterval = setInterval(goToNextSlide, 2000);
 
     // Reinicia el intervalo cuando se interactúa
     const resetInterval = () => {
         clearInterval(slideInterval);
-        slideInterval = setInterval(goToNextSlide, 5000);
+        slideInterval = setInterval(goToNextSlide, 2000);
     };
 
     // Opcional: Actualiza la posición de los slides al cambiar el tamaño de la ventana
