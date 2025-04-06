@@ -61,13 +61,20 @@
         const menuToggle = document.getElementById('menu-toggle');
         const dropdown = document.querySelector('.header__dropdown');
 
-        menuToggle.addEventListener('click', () => {
-            console.log("click!");
-            
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita que se cierre si se hace clic en el ícono
             dropdown.classList.toggle('active');
         });
+
+        // Cierra el menú si se hace clic fuera de él
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target) && !menuToggle.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
     });
-            </script>
+</script>
+
     <?php include 'php/include/footer.php'; ?>
 </body>
 </html>

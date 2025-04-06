@@ -103,24 +103,39 @@ body {
 }
 
 /* Menú desplegable del header */
+.dropdown__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .header__dropdown {
+    margin-top: 3rem;
+    margin-left: 0.3rem;
     display: none;
     background-color: red;
     padding: 10px;
     color: white;
     position: absolute;
-    top: 60px;
-    right: 10px;
-    z-index: 999;
+    top: 4rem; /* ajusta según tu diseño */
+    left: 0;
+    z-index: 230;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.3);
+    min-width: 2rem;
 }
 
 .header__dropdown.active {
     display: block;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .dropdown__cart img {
     width: 2.4rem;
     height: 2.4rem;
+
 }
 
 /* footer */
