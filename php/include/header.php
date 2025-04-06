@@ -38,7 +38,9 @@ if (session_status() === PHP_SESSION_NONE) {
         <nav>
             <ul>
                 <li><a href="#">Configurar</a></li>
-                <li><a href="php/login.php">Log in</a></li>
+                <?php if (!isset($_SESSION['usuario'])): ?>
+                    <a href="php/login.php" class="login__link">Log in</a>
+                <?php endif; ?>
             </ul>
         </nav>
     </div>

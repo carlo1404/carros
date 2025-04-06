@@ -163,6 +163,25 @@ body {
     color: #ff4081;
     font-weight: bold;
 }
+
+.cerrar__sesion {
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 10px 24px; /* aumentamos el padding horizontal */
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.3s ease;
+    min-width: 140px; /* asegura espacio suficiente */
+    text-align: center;
+}
+
+.cerrar__sesion:hover {
+    background-color: #c0392b;
+    text-decoration: none;
+}
 /* footer */
 .footer {
     background-color: #000;

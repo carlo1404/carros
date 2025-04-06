@@ -15,7 +15,7 @@
     </header>
 
     <main class="login">
-        <form class="login__form" action="" method="POST">
+        <form class="login__form" action="login-proceso.php" method="POST">
             <h1 class="login__title">Iniciar Sesión</h1>
 
             <input type="text" class="login__input" name="usuario" id="usuario" placeholder="Email" required>

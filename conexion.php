@@ -2,7 +2,7 @@
 // Datos de conexión
 $servidor = "localhost";
 $usuario = "root";
-$contrasena = "root"; // Cambia esta si tienes contraseña en tu MySQL
+$contrasena = ""; // Cambia esta si tienes contraseña en tu MySQL
 $base_de_datos = "carros";
 
 // Crear la conexión
