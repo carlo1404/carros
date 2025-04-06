@@ -9,7 +9,7 @@
 <body>
     <header class="header">
         <img src="../img/logo.png" class="header__logo" alt="logotipo">
-        <a href="#" class="header__home-link">
+        <a href="/carros/index.php" class="header__home-link">
             <img src="../img/icono-home.png" class="header__home-icon" alt="icono del home">
         </a>
     </header>

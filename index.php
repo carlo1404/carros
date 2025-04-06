@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Inicio - Solar Cars</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -15,5 +15,6 @@
         <p>Contenido de la página...</p>
     </main>
 
+    <?php include 'php/include/footer.php'; ?>
 </body>
 </html>

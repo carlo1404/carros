@@ -12,7 +12,7 @@
             <nav>
                 <ul>
                     <li><a href="#">Configurar</a></li>
-                    <li><a href="/php/login.php">Log in</a></li>
+                    <li><a href="php/login.php">Log in</a></li>
                 </ul>
             </nav>
         </div>
