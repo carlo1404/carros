@@ -164,6 +164,23 @@ body {
     font-weight: bold;
 }
 
+header__nav a,
+.cerrar__sesion,
+.carrito__enlace {
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header__nav a:hover,
+.cerrar__sesion:hover,
+.carrito__enlace:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* efecto de fondo suave */
+    color: #ffd700; /* dorado o amarillo para que se vea */
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
 .cerrar__sesion {
     margin-top: 10px;
     display: inline-block;
