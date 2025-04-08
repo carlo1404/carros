@@ -138,6 +138,67 @@ body {
 
 }
 
+.carrito__enlace {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+.carrito__contador {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #ff4081;
+    color: white;
+    font-size: 13px;
+    padding: 4px 8px;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.cerrar__sesion:hover {
+    color: #ff4081;
+    font-weight: bold;
+}
+
+header__nav a,
+.cerrar__sesion,
+.carrito__enlace {
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header__nav a:hover,
+.cerrar__sesion:hover,
+.carrito__enlace:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* efecto de fondo suave */
+    color: #ffd700; /* dorado o amarillo para que se vea */
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+.cerrar__sesion {
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 10px 24px; /* aumentamos el padding horizontal */
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.3s ease;
+    min-width: 140px; /* asegura espacio suficiente */
+    text-align: center;
+}
+
+.cerrar__sesion:hover {
+    background-color: #c0392b;
+    text-decoration: none;
+}
 /* footer */
 .footer {
     background-color: #000;
@@ -324,4 +385,146 @@ body {
     font-size: 2.4rem;
     margin-top: 2rem;
     font-weight: bold;
+}
+
+/* Sección de vehículos en oferta y venta */
+.vehiculos__seccion {
+    background-color: #111;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.vehiculo__card {
+    display: flex;
+    justify-content: space-between;
+    background-color: #dcdcdc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.vehiculo__info {
+    padding: 1.5rem;
+    flex: 1;
+    font-family: 'Arial', sans-serif;
+}
+
+.vehiculo__info h3 {
+    font-family: 'Impact', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.vehiculo__info p {
+    margin: 0.5rem 0;
+}
+
+.vehiculo__imagen {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+.boton__comprar {
+    margin-top: 1rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    gap: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.boton__comprar:hover {
+    background-color: #333;
+}
+
+.boton__comprar img {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* video */
+.video__seccion {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.video__titulo {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.video__contenedor {
+    position: relative;
+    width: 100%;
+    max-width: 70rem; /* <-- Cambia este valor a tu gusto */
+    margin: 0 auto;   /* Para centrarlo */
+    padding-top: 56.25%; /* Mantiene relación 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding-top: 30%;
+}
+
+.video__contenedor video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .video__contenedor {
+        padding-top: 56.25%;
+    }
+
+    .video__titulo {
+        font-size: 1.5rem;
+    }
+}
+
+/* styles de mensaje de agregado */
+.agregado__contenedor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.mensaje-agregado {
+    display: none;
+    color: green;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.mensaje-agregado.mostrar {
+    display: inline-block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

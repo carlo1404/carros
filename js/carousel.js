@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Auto slide cada 5 segundos
-    let slideInterval = setInterval(goToNextSlide, 5000);
+    let slideInterval = setInterval(goToNextSlide, 2000);
 
     // Reinicia el intervalo cuando se interactúa
     const resetInterval = () => {
         clearInterval(slideInterval);
-        slideInterval = setInterval(goToNextSlide, 5000);
+        slideInterval = setInterval(goToNextSlide, 2000);
     };
 
     // Opcional: Actualiza la posición de los slides al cambiar el tamaño de la ventana
@@ -79,5 +79,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         const currentSlide = track.querySelector('.current-slide');
         track.style.transform = 'translateX(-' + currentSlide.style.left + ')';
+    });
+});
+
+// Agregar mensaje de agregado al botón de comprar
+document.addEventListener('DOMContentLoaded', () => {
+    const botones = document.querySelectorAll('.boton__comprar');
+
+    botones.forEach(boton => {
+        boton.addEventListener('click', () => {
+            const mensaje = boton.parentElement.querySelector('.mensaje-agregado');
+            mensaje.textContent = "✅ Agregado al carrito";
+            mensaje.classList.add('mostrar');
+
+            // Ocultarlo luego de 3 segundos
+            setTimeout(() => {
+                mensaje.classList.remove('mostrar');
+            }, 3000);
+        });
     });
 });
