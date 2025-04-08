@@ -13,9 +13,9 @@
       <img src="../img/logo.png" alt="Logo">
       <h1>SolarAuto</h1>
     </div>
-    <a href="index.html" class="home-icon">
-      <img src="../img/icono-home.png" alt="Inicio">
-    </a>
+    <a href="/carros/index.php" class="header__home-link">
+            <img src="../img/icono-home.png" class="header__home-icon" alt="icono del home">
+        </a>
   </header>
 
   <div class="side-decor left"></div>
