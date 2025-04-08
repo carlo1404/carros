@@ -134,7 +134,7 @@ body {
 .car-card {
     width: 468px;
     height: 475px;
-    background: linear-gradient(to bottom, #B3B3B3, #5a5a5a);
+    background: linear-gradient(to bottom, #575757, #212121);
     box-shadow: inset 5px 5px 10px rgba(255, 255, 255, 0.3), 
                 inset -5px -5px 10px rgba(0, 0, 0, 0.3);
     display: flex;

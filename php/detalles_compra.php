@@ -12,7 +12,6 @@
     <!-- Navbar -->
     <div class="navbar">
         <div class="left-section">
-            <div class="brand-name">SolarAuto</div>
             <img src="../img/logo.png"class="logo-left">
         </div>
         
