@@ -319,14 +319,14 @@ header__nav a,
 }
 
 /* Ajuste de posición para separar un poco más los botones del carrusel */
-.carousel__button--left {
+/* .carousel__button--left {
     left: 0.5rem;
     
 }
 
 .carousel__button--right {
     right: 0.5rem; /* Se aleja 1.5rem hacia la derecha */
-}
+/* } */ */
 
 
 /* Indicadores */

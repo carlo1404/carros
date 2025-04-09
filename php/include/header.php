@@ -12,7 +12,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <!-- Contenedor del menú desplegable -->
         <div class="header__dropdown">
             <!-- Ver tu carrito con ícono -->
-            <a href="/carros/php/detalles_compra.php" class="dropdown__cart carrito__enlace" style="position: relative; display: flex; align-items: center; gap: 6px;">
+            <a href="/carros/php/tu-shopping-car.php" class="dropdown__cart carrito__enlace" style="position: relative; display: flex; align-items: center; gap: 6px;">
                 <img src="/carros/img/shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Carrito" style="width: 20px;">
                 <span>Ver tu carrito</span>
                 <?php if (!empty($_SESSION['carrito'])): ?>

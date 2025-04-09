@@ -31,7 +31,7 @@ if (session_status() == PHP_SESSION_NONE) {
             </ul>
         </div>
 
-        <!-- Botones -->
+        Botones
         <button class="carousel__button carousel__button--left">&#10094;</button>
         <button class="carousel__button carousel__button--right">&#10095;</button>
 
