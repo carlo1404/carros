@@ -15,7 +15,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
     <?php include 'php/include/header.php'; ?>
 
-    <main class="main__content">
+<main class="main__content">
     <div class="carousel">
         <div class="carousel__track-container">
             <ul class="carousel__track">

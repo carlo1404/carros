@@ -13,7 +13,7 @@ session_start();
 <body>
 <header class="carrito-header">
     <div class="header-left">
-        <img src="img/carro-blanco.png" alt="Carrito" class="logo">
+        <img src="../img/logo.png" alt="Carrito" class="logo">
     </div>
 
     <div class="header-center">
@@ -21,8 +21,8 @@ session_start();
     </div>
 
     <div class="header-right">
-        <a href="index.php" class="btn-home">
-            <img src="img/home.png" alt="Inicio">
+        <a href="../index.php" class="btn-home">
+            <img src="../img/icono-home.png" alt="Inicio">
         </a>
     </div>
 </header>
@@ -33,21 +33,21 @@ session_start();
                 <div class="carrito-imagen"></div>
                 <h2 class="carrito-titulo">Carro Deportivo</h2>
                 <p class="carrito-descripcion">Modelo 2025, motor V8, color rojo mate.</p>
-                <button class="carrito-btn">Detalles</button>
+                <button class="carrito-btn"  onclick="window.location.href='detalles_producto.php'">Detalles</button>
             </div>
 
             <div class="carrito-card">
                 <div class="carrito-imagen"></div>
                 <h2 class="carrito-titulo">Carro Clásico</h2>
                 <p class="carrito-descripcion">Estilo retro, restaurado completamente.</p>
-                <button class="carrito-btn">Detalles</button>
+                <button class="carrito-btn"  onclick="window.location.href='detalles_producto.php'">Detalles</button>
             </div>
 
             <div class="carrito-card">
                 <div class="carrito-imagen"></div>
                 <h2 class="carrito-titulo">SUV Familiar</h2>
                 <p class="carrito-descripcion">Espacioso, ideal para viajes largos.</p>
-                <button class="carrito-btn">Detalles</button>
+                <button class="carrito-btn" onclick="window.location.href='detalles_producto.php'">Detalles</button>
             </div>
         </div>
 
