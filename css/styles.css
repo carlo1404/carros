@@ -263,122 +263,141 @@ header__nav a,
     overflow: hidden;
 }
 
+/* CONTENEDOR PRINCIPAL DEL CARRUSEL */
+/* CONTENEDOR PRINCIPAL DEL CARRUSEL */
 .carousel {
     position: relative;
     width: 100%;
-    max-width: 80rem;
+    max-width: 125rem;
     margin: 2rem auto;
-    overflow: hidden;
-    background-color: #f8f8f8;
+    background-color: #222; /* Fondo oscuro para resaltar las imágenes */
     border-radius: 1rem;
-    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
+/* MENÚ SUPERIOR (links grandes y legibles) */
+/* Menú superior */
+.carousel__menu {
+    position: absolute;     /* Sigue sobre el carousel */
+    top: 0;             /* Ajusta este valor para moverlo verticalmente */
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    
+    padding: 1rem 0;
+    z-index: 10;
+    /* El resto de propiedades que ya tuvieras */
+}
+.carousel__menu a {
+    color: #fff;
+    font-size: 1.8rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid #fff;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.carousel__menu a:hover {
+    background-color: #fff;
+    color: #000;
+}
 
+/* CONTENEDOR DE LA PISTA */
 .carousel__track-container {
     position: relative;
     overflow: hidden;
+    /* Ajusta la altura para que se vean bien las imágenes */
+    height: 65rem;
+    margin-top: 6rem; /* Deja espacio para el menú superior */
 }
 
-
+/* PISTA DE SLIDES */
 .carousel__track {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    list-style: none;
     padding: 0;
     margin: 0;
-    list-style: none;
 }
 
+/* SLIDE INDIVIDUAL */
 .carousel__slide {
-    min-width: 100%;
+    flex: 0 0 100%;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Opcional: un pequeño padding para que las imágenes no queden pegadas a los bordes */
+    padding: 1rem;
 }
 
+/* IMÁGENES DEL CARRUSEL */
 .carousel__image {
-    width: 100%;
-    display: block;
-    border-radius: 10px 10px 0 0;
+    /* Permite que la imagen se ajuste sin recortar */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    border-radius: 0.5rem;
 }
-/* BOTONES DE NAVEGACIÓN (FLECHAS) */
+/* .carousel__image:hover {
+    transform: scale(1.05);
+} */
+
+/* BOTONES DE NAVEGACIÓN */
 .carousel__button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: rgba(255, 255, 255, 0.5);
     border: none;
-    font-size: 2rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
+    padding: 1rem;
     border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
     transition: background-color 0.3s ease;
 }
-
 .carousel__button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
 }
-
-
-/* Ajuste de posición para separar un poco más los botones del carrusel */
 .carousel__button--left {
     left: 1.5rem;
-    
+    display: none;
 }
-
 .carousel__button--right {
-    right: 1.5rem; /* Se aleja 1.5rem hacia la derecha */
+    right: 1.5rem;
+    display: none;
 }
 
-/* INDICADORES DE SLIDES DEL JS */
+/* INDICADORES */
 .carousel__nav {
     position: absolute;
-    bottom: 1.5rem;
+    bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 1rem;
-    z-index: 5;
+    gap: 0.75rem;
+    z-index: 10;
 }
-
 .carousel__indicator {
     width: 1rem;
     height: 1rem;
-    background-color: #bbb;
+    background-color: #888;
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
+.carousel__indicator:hover {
+    transform: scale(1.2);
+}
 .carousel__indicator.current-slide {
-    background-color: #333;
+    background-color: #fff;
 }
-
-
-/* MENÚ SUPERIOR */
-.carousel__menu {
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
-    padding: 1.5rem;
-    background-color: #ffffff;
-    border-top: 0.1rem solid #ddd;
-    flex-wrap: wrap;
-}
-
-.carousel__menu a {
-    text-decoration: none;
-    color: #444;
-    font-weight: bold;
-    padding: 0.8rem 1.2rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
-}
-.carousel__menu a:hover {
-    background-color: #eaeaea;
-}
-
 /* Título inferior del carrusel */
 .carousel__title {
     color: white;

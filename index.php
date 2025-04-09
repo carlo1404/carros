@@ -17,6 +17,13 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <main class="main__content">
     <div class="carousel">
+        <div class="carousel__menu">
+            <a href="#">TIPO DE VEHÍCULO</a>
+            <a href="#">MARCA AUTOMOTRIZ</a>
+            <a href="#">LÍNEA DE VEHÍCULO</a>
+            <a href="#">AGENDA TU CITA</a>
+        </div>
+
         <div class="carousel__track-container">
             <ul class="carousel__track">
                 <li class="carousel__slide current-slide">
@@ -31,23 +38,13 @@ if (session_status() == PHP_SESSION_NONE) {
             </ul>
         </div>
 
-        <!-- Botones -->
         <button class="carousel__button carousel__button--left">&#10094;</button>
         <button class="carousel__button carousel__button--right">&#10095;</button>
 
-        <!-- Indicadores -->
         <div class="carousel__nav">
             <button class="carousel__indicator current-slide"></button>
             <button class="carousel__indicator"></button>
             <button class="carousel__indicator"></button>
-        </div>
-
-        <!-- Menú superior -->
-        <div class="carousel__menu">
-            <a href="#">TIPO DE VEHÍCULO</a>
-            <a href="#">MARCA AUTOMOTRIZ</a>
-            <a href="#">LÍNEA DE VEHÍCULO</a>
-            <a href="#">AGENDA TU CITA</a>
         </div>
     </div>
 
