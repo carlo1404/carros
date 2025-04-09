@@ -21,8 +21,7 @@
             </div>
             
             <div class="header__buttons">
-                <button class="header__button header__button--config">CONFIGURAR</button>
-                <button class="header__button header__button--login">LOG IN</button>
+                <a href="../index.php"><img src="../img/icono-home.png"></a>
             </div>
         </div>
     </header>
