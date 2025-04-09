@@ -10,38 +10,37 @@
 
     /* dejo eso pero obviamente no se a definido bien */
 }
-
-html{
+html {
     font-size: 62.5%;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
 }
 
-h1{
+h1 {
     font-size: 3.2rem;
 }
-h2{
+h2 {
     font-size: 2.4rem;
 }
-h3{
+h3 {
     font-size: 2rem;
 }
-h4{
+h4 {
     font-size: 1.8rem;
 }
-h5{
+h5 {
     font-size: 1.6rem;
 }
-h6{
+h6 {
     font-size: 1.4rem;
 }
-p{
+p {
     font-size: 1.6rem;
 }
 *,
 *::before,
-*::after{
+*::after {
     box-sizing: inherit;
 }
 
@@ -50,156 +49,287 @@ body {
     background-color: var(--color-primary-light);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+/* ==== HEADER ESTILO OSCURO PREMIUM ==== */
 
-.header {
+header {
+    background: linear-gradient(90deg, #0e0e0e 0%, #1a1a1a 100%);
+    padding: 1.2rem 2rem;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #292929;
+}
+
+.header__container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    background-color: #000;
-    padding: 1.2rem ; 
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
 }
 
-.header__logo img {
-    width: 5rem;
-    height: auto;
-    cursor: pointer;
-}
-
-.header__title {
+.header__left,
+.header__center,
+.header__right {
     display: flex;
     align-items: center;
+    gap: 1.5rem;
+}
+
+/* Menú */
+.menu-btn img {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    filter: invert(1);
+    transition: transform 0.2s ease;
+}
+
+.menu-btn img:hover {
+    transform: scale(1.15);
+}
+
+/* Carrito */
+.cart-link {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    transition: transform 0.2s ease, color 0.3s ease;
+    font-size: 1.15rem;
+}
+
+.cart-link:hover {
+    transform: scale(1.08);
+    color: #f5c518;
+}
+
+.cart-link img {
+    width: 34px;
+    height: 34px;
+    /* No invertido para mantenerlo blanco */
+}
+
+.cart-badge {
+    background-color: #e63946;
     color: white;
-    font-size: 1.6rem;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 0.9rem;
     font-weight: bold;
-    gap: 2rem;
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    box-shadow: 0 0 6px #e63946;
 }
 
-.header__title img {
-    width: 9rem;
-    height: auto;
+.cart-text {
+    margin-left: 0.6rem;
+    font-size: 1.05rem;
 }
 
-.header__nav ul {
+/* Logo + título */
+.header__center {
+    flex-direction: row;
+    gap: 0.8rem;
+    text-align: center;
+}
+
+.header-logo {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: rotate(1deg) scale(1.05);
+}
+
+.brand-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f5c518;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px #000;
+}
+
+/* Navegación */
+.nav-links {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
+    padding-left: 0;
     margin: 0;
-    padding: 0;
 }
 
-.header__nav a {
+.nav-links a {
     text-decoration: none;
-    font-size: 1.6rem;
-    color: white;
-    border: 0.1rem solid white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 0.4rem;
-    transition: all 0.3s ease;
+    color: #f0f0f0;
+    font-weight: 600;
+    font-size: 1.3rem;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-.header__nav a:hover {
-    background-color: white;
-    color: black;
+.nav-links a::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #f5c518;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: width 0.3s ease;
 }
 
-/* Menú desplegable del header */
+.nav-links a:hover {
+    color: #f5c518;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    color: #f5c518;
+    font-weight: 700;
+}
+
+/* Responsive mejorado */
+@media (max-width: 768px) {
+    .header__container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .header__left,
+    .header__right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 1.4rem;
+        padding: 0.5rem 0;
+    }
+
+    .brand-title {
+        font-size: 2.2rem;
+    }
+
+    .cart-link img,
+    .menu-btn img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+
+
+/* MENÚ DESPLEGABLE DEL HEADER (dropdown) */
 .dropdown__wrapper {
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 
+/* --- Sección Carrito (Dropdown) --- */
+/* Modificado: en lugar de right: 0, se coloca left: 0 para ubicarlo al lado izquierdo del header */
 .header__dropdown {
-    margin-top: 3rem;
-    margin-left: 0.3rem;
     display: none;
-    background-color: red;
-    padding: 10px;
-    color: white;
     position: absolute;
-    top: 4rem; /* ajusta según tu diseño */
+    top: 4rem; /* Ajusta según tu diseño */
     left: 0;
+    background-color: #222; /* Fondo neutro */
+    padding: 1rem;
+    color: #fff;
     z-index: 230;
     border-radius: 0.5rem;
     box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.3);
-    min-width: 2rem;
+    min-width: 200px;
 }
-
 .header__dropdown.active {
     display: block;
-    animation: fadeIn 0.5s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Enlace del Carrito */
 .dropdown__cart img {
     width: 2.4rem;
     height: 2.4rem;
-
+    cursor: pointer;
 }
-
 .carrito__enlace {
-    font-size: 14px;
-    color: white;
+    font-size: 1.4rem;
+    color: #fff;
     text-decoration: none;
     position: relative;
+    margin-left: 1rem;
 }
-
 .carrito__contador {
     position: absolute;
-    top: -8px;
-    right: -10px;
+    top: -0.8rem;  /* Ajustado */
+    right: -1rem;  /* Ajustado */
     background-color: #ff4081;
-    color: white;
-    font-size: 13px;
-    padding: 4px 8px;
+    color: #fff;
+    font-size: 1.3rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 50%;
     font-weight: bold;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.3);
     z-index: 10;
 }
 
-.cerrar__sesion:hover {
-    color: #ff4081;
-    font-weight: bold;
-}
-
-header__nav a,
-.cerrar__sesion,
-.carrito__enlace {
-    color: white;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.header__nav a:hover,
-.cerrar__sesion:hover,
-.carrito__enlace:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* efecto de fondo suave */
-    color: #ffd700; /* dorado o amarillo para que se vea */
-    border-radius: 6px;
-    padding: 4px 8px;
-}
-
+/* Botón Cerrar Sesión */
 .cerrar__sesion {
     margin-top: 10px;
     display: inline-block;
     background-color: #e74c3c;
     color: #fff;
-    padding: 10px 24px; /* aumentamos el padding horizontal */
+    padding: 10px 24px;
     border-radius: 5px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 1.4rem;
     transition: background 0.3s ease;
-    min-width: 140px; /* asegura espacio suficiente */
+    min-width: 140px;
     text-align: center;
 }
-
 .cerrar__sesion:hover {
     background-color: #c0392b;
     text-decoration: none;
 }
-/* footer */
+
+/* Hover global en enlaces del header */
+.header__nav a:hover,
+.cerrar__sesion:hover,
+.carrito__enlace:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffd700;
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+/* FOOTER */
 .footer {
     background-color: #000;
     color: white;
@@ -208,11 +338,9 @@ header__nav a,
     align-items: center;
     padding: 1rem 4rem;
     font-family: 'Arial Black', sans-serif;
-    /* Fijo en la parte inferior */
     bottom: 0;
     left: 0;
     width: 100%;
-
 }
 
 .footer__item {
@@ -251,8 +379,7 @@ header__nav a,
     height: 6rem;
 }
 
-/* parte del carrusel del carro  */
-/* Estilos del carrusel principal */
+/* CARRUSEL */
 .main__content {
     position: relative;
     background-color: #0a0a0a;
@@ -261,34 +388,29 @@ header__nav a,
     overflow: hidden;
 }
 
-/* CONTENEDOR PRINCIPAL DEL CARRUSEL */
-/* CONTENEDOR PRINCIPAL DEL CARRUSEL */
 .carousel {
     position: relative;
     width: 100%;
     max-width: 125rem;
     margin: 2rem auto;
-    background-color: #222; /* Fondo oscuro para resaltar las imágenes */
+    background-color: #222;
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* MENÚ SUPERIOR (links grandes y legibles) */
-/* Menú superior */
 .carousel__menu {
-    position: absolute;     /* Sigue sobre el carousel */
-    top: 0;             /* Ajusta este valor para moverlo verticalmente */
+    position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 2rem;
-    
     padding: 1rem 0;
     z-index: 10;
-    /* El resto de propiedades que ya tuvieras */
 }
+
 .carousel__menu a {
     color: #fff;
     font-size: 1.8rem;
@@ -298,21 +420,19 @@ header__nav a,
     border-radius: 0.5rem;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .carousel__menu a:hover {
     background-color: #fff;
     color: #000;
 }
 
-/* CONTENEDOR DE LA PISTA */
 .carousel__track-container {
     position: relative;
     overflow: hidden;
-    /* Ajusta la altura para que se vean bien las imágenes */
     height: 65rem;
-    margin-top: 6rem; /* Deja espacio para el menú superior */
+    margin-top: 6rem;
 }
 
-/* PISTA DE SLIDES */
 .carousel__track {
     display: flex;
     transition: transform 0.5s ease-in-out;
@@ -321,31 +441,23 @@ header__nav a,
     margin: 0;
 }
 
-/* SLIDE INDIVIDUAL */
 .carousel__slide {
     flex: 0 0 100%;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Opcional: un pequeño padding para que las imágenes no queden pegadas a los bordes */
     padding: 1rem;
 }
 
-/* IMÁGENES DEL CARRUSEL */
 .carousel__image {
-    /* Permite que la imagen se ajuste sin recortar */
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
     transition: transform 0.3s ease;
     border-radius: 0.5rem;
 }
-/* .carousel__image:hover {
-    transform: scale(1.05);
-} */
 
-/* BOTONES DE NAVEGACIÓN */
 .carousel__button {
     position: absolute;
     top: 50%;
@@ -359,19 +471,21 @@ header__nav a,
     z-index: 10;
     transition: background-color 0.3s ease;
 }
+
 .carousel__button:hover {
     background-color: rgba(255, 255, 255, 0.8);
 }
+
 .carousel__button--left {
     left: 1.5rem;
     display: none;
 }
+
 .carousel__button--right {
     right: 1.5rem;
     display: none;
 }
 
-/* INDICADORES */
 .carousel__nav {
     position: absolute;
     bottom: 1rem;
@@ -381,6 +495,7 @@ header__nav a,
     gap: 0.75rem;
     z-index: 10;
 }
+
 .carousel__indicator {
     width: 1rem;
     height: 1rem;
@@ -390,13 +505,15 @@ header__nav a,
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .carousel__indicator:hover {
     transform: scale(1.2);
 }
+
 .carousel__indicator.current-slide {
     background-color: #fff;
 }
-/* Título inferior del carrusel */
+
 .carousel__title {
     color: white;
     text-align: center;
@@ -405,7 +522,7 @@ header__nav a,
     font-weight: bold;
 }
 
-/* Sección de vehículos en oferta y venta */
+/* Sección de vehículos */
 .vehiculos__seccion {
     background-color: #111;
     padding: 2rem;
@@ -420,7 +537,7 @@ header__nav a,
     background-color: #dcdcdc;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     align-items: center;
     flex-wrap: wrap;
 }
@@ -470,7 +587,7 @@ header__nav a,
     height: 2rem;
 }
 
-/* video */
+/* VIDEO */
 .video__seccion {
     max-width: 1200px;
     margin: 0 auto;
@@ -487,9 +604,9 @@ header__nav a,
 .video__contenedor {
     position: relative;
     width: 100%;
-    max-width: 70rem; /* <-- Cambia este valor a tu gusto */
-    margin: 0 auto;   /* Para centrarlo */
-    padding-top: 56.25%; /* Mantiene relación 16:9 */
+    max-width: 70rem;
+    margin: 0 auto;
+    padding-top: 56.25%;
     height: 0;
     overflow: hidden;
     border-radius: 15px;
@@ -510,7 +627,6 @@ header__nav a,
     .video__contenedor {
         padding-top: 56.25%;
     }
-
     .video__titulo {
         font-size: 1.5rem;
     }
@@ -519,7 +635,7 @@ header__nav a,
     }
 }
 
-/* styles de mensaje de agregado */
+/* Mensajes de agregado */
 .agregado__contenedor {
     display: flex;
     align-items: center;

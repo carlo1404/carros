@@ -5,44 +5,40 @@ if (session_status() === PHP_SESSION_NONE) {
 ?>
 
 <header class="header">
-    <div class="header__logo dropdown__wrapper">
-        <!-- Ícono del menú con ID para el toggle -->
-        <img src="img/menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="icono" id="menu-toggle">
+    <div class="header__container">
 
-        <!-- Contenedor del menú desplegable -->
-        <div class="header__dropdown">
-            <!-- Ver tu carrito con ícono -->
-            <a href="/carros/php/tu-shopping-car.php" class="dropdown__cart carrito__enlace" style="position: relative; display: flex; align-items: center; gap: 6px;">
-                <img src="/carros/img/shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Carrito" style="width: 20px;">
-                <span>Ver tu carrito</span>
-                <?php if (!empty($_SESSION['carrito'])): ?>
-                    <span class="carrito__contador"><?php echo count($_SESSION['carrito']); ?></span>
-                <?php endif; ?>
+        <!-- Lado izquierdo -->
+        <div class="header__left">
+            <button id="menu-toggle" class="menu-btn" title="Menú">
+                <img src="img/menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Menú">
+            </button>
+
+            <a href="/carros/php/tu-shopping-car.php" class="cart-link" title="Ver tu carrito">
+                <img src="/carros/img/shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="Carrito">
+                <span class="cart-badge">
+                    <?php echo isset($_SESSION['carrito']) ? count($_SESSION['carrito']) : 0; ?>
+                </span>
+                <span class="cart-text">Carrito</span>
             </a>
-
-            <!-- Cerrar sesión solo si está logueado -->
-            <?php if (isset($_SESSION['usuario'])): ?>
-                <a href="/carros/php/logout.php" class="cerrar__sesion" style="margin-top: 10px; display: inline-block; background-color: #e74c3c; color: white; padding: 6px 14px; border-radius: 6px; font-size: 14px; text-decoration: none;">
-                    Cerrar sesión
-                </a>
-            <?php endif; ?> 
         </div>
-    </div>
 
-    <div class="header__title">
-        <h1>Solar Cars</h1>
-        <img src="/carros/img/logo.png" alt="Auto">
-    </div>
+        <!-- Centro -->
+        <div class="header__center">
+            <img src="/carros/img/logo.png" alt="Logo" class="header-logo">
+            <h1 class="brand-title">Solar Cars</h1>
+        </div>
 
-    <div class="header__nav">
-        <nav>
-            <ul style="display: flex; gap: 15px; align-items: center; list-style: none;">
-                <li><a href="/carros/configurar.php" style="color: white; text-decoration: none;">Configurar</a></li>
-
+        <!-- Derecha -->
+        <nav class="header__right">
+            <ul class="nav-links">
+                <li><a href="/carros/configurar.php">Configurar</a></li>
                 <?php if (!isset($_SESSION['usuario'])): ?>
-                    <li><a href="/carros/php/login.php" class="login__link" style="color: white; text-decoration: none;">Log in</a></li>
+                    <li><a href="/carros/php/login.php">Log in</a></li>
+                <?php else: ?>
+                    <li><a href="/carros/php/logout.php">Cerrar sesión</a></li>
                 <?php endif; ?>
             </ul>
         </nav>
+
     </div>
 </header>
