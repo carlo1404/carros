@@ -27,12 +27,12 @@
         <img src="../img/silueta.png" alt="Icono Registro">
       </div>
       <h2>Registrarse</h2>
-      <form>
-        <input type="text" placeholder="Nombre Completo" required>
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Contraseña" required>
-        <input type="password" placeholder="Confirmar Contraseña" required>
-        <button type="submit">Registrarse</button>
+      <form action="register-proceso.php" method="POST">
+          <input type="text" name="nombre" placeholder="Nombre Completo" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="password" name="contrasena" placeholder="Contraseña" required>
+          <input type="password" name="confirmar" placeholder="Confirmar Contraseña" required>
+            <button type="submit">Registrarse</button>
       </form>
     </div>
   </main>

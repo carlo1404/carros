@@ -4,7 +4,7 @@ require_once '../conexion.php'; // Ajusta la ruta si es necesario
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['usuario'];
-    $password = $_POST['contrasena'];
+    $contrasenaIngresada = $_POST['contrasena'];
 
     // Consulta para buscar el usuario
     $sql = "SELECT * FROM usuarios WHERE email = ?";
@@ -16,17 +16,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultado->num_rows == 1) {
         $usuario = $resultado->fetch_assoc();
 
-        // Comparar contraseña (aquí no usamos hash aún)
-        if ($usuario['password'] === $password) {
+        // Verificar la contraseña encriptada
+        if (password_verify($contrasenaIngresada, $usuario['password'])) {
             // Login exitoso
             $_SESSION['usuario'] = $usuario;
             header("Location: ../index.php");
             exit();
         } else {
-            echo "❌ Contraseña incorrecta.";
+            echo "<p style='color:red; text-align:center;'>❌ Contraseña incorrecta.</p>";
         }
     } else {
-        echo "❌ Usuario no encontrado.";
+        echo "<p style='color:red; text-align:center;'>❌ Usuario no encontrado.</p>";
     }
 
     $stmt->close();

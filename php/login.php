@@ -52,7 +52,7 @@
         <img src="../img/twitter.png" alt="Twitter">
       </div>
     </div>
-   
+
   </footer>
     
 </body>
