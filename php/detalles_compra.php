@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SolarAuto - Detalles de las compras</title>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="detalles_compra.css">
+    <link rel="stylesheet" href="../css/detalles_compra.css">
 </head>
 <body>
 
     <!-- Navbar -->
     <div class="navbar">
         <div class="left-section">
-            <div class="brand-name">SolarAuto</div>
-            <img src="img/logo.png"class="logo-left">
+            <img src="../img/logo.png"class="logo-left">
         </div>
         
         <div class="center-section">
@@ -21,31 +20,31 @@
         </div>
         
         <div class="right-section">
-            <img src="img/home.png" class="logo-right">
+            <img src="/img/icono-home.png" class="logo-right">
         </div>
     </div>
 
     <!-- Seccion -->
     <div class="progress-section">
-        <div class="progress-item">
+        <button class="progress-item">
             <div class="progress-line"></div>
             <div class="progress-text">TIPO DE VEHICULO</div>
-        </div>
+        </button>
         
-        <div class="progress-item">
+        <button class="progress-item">
             <div class="progress-line"></div>
             <div class="progress-text">MARCA AUTOMOTRIZ</div>
-        </div>
+        </button>
         
-        <div class="progress-item">
+        <button class="progress-item">
             <div class="progress-line"></div>
             <div class="progress-text">LINEA VEHICULO</div>
-        </div>
+        </button>
         
-        <div class="progress-item">
+        <button class="progress-item">
             <div class="progress-line"></div>
             <div class="progress-text">AGENDA TU CITA</div>
-        </div>
+        </button>
     </div>
 
 
@@ -54,7 +53,7 @@
         <div class="car-card">
             <h2 class="card-title">Carro</h2>
             <div class="car-image">
-                <div class="placeholder-image">Imagen 463x216</div>
+                <img class="placeholder-image">
             </div>
             <div class="card-info">
                 <p class="info-item">Detalles</p>
@@ -66,7 +65,7 @@
         <div class="car-card">
             <h2 class="card-title">Carro</h2>
             <div class="car-image">
-                <div class="placeholder-image">Imagen 463x216</div>
+                <img class="placeholder-image">
             </div>
             <div class="card-info">
                 <p class="info-item">Detalles</p>
