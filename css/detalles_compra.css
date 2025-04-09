@@ -1,3 +1,7 @@
+html {
+    font-size: 62.5%;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -13,12 +17,12 @@ body {
 /* Navbar */
 .navbar {
     width: 100%;
-    height: 154px;
+    height: 8.4rem;
     background: linear-gradient(to right, #000000, #1E1C1C, #272727);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 3rem;
     position: relative;
 }
 
@@ -31,13 +35,13 @@ body {
 .brand-name {
     font-family: 'Zen Dots', cursive;
     color: white;
-    font-size: 24px;
-    margin-bottom: 5px;
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
 }
 
 .logo-left {
-    width: 218.88px;
-    height: 62.05px;
+    width: 21.88rem;
+    height: 6.7rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +57,7 @@ body {
 }
 
 .title {
-    font-size: 32px;
+    font-size: 3.2rem;
     color: white;
     font-weight: bold;
 }
@@ -64,8 +68,8 @@ body {
 }
 
 .logo-right {
-    width: 60px;
-    height: 60px;
+    width: 6rem;
+    height: 6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +83,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-around;
-    padding: 40px 50px;
+    padding: 4rem 5rem;
 }
 
 .progress-item {
@@ -91,7 +95,7 @@ body {
     border: none;
     cursor: pointer;
     padding: 0;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 .progress-item:hover .progress-line {
@@ -105,10 +109,10 @@ body {
 
 .progress-line {
     width: 100%;
-    height: 1px;
+    height: 0.01rem;
     background-color: white;
-    margin-bottom: 15px;
-    transition: background-color 0.3s ease;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.5s ease;
 }
 
 .progress-text {
@@ -116,8 +120,8 @@ body {
     font-family: 'Jersey M54', sans-serif;
     font-size: 20px;
     text-align: left;
-    letter-spacing: 1px;
-    padding-left: 2px; 
+    letter-spacing: 0.1rem;
+    padding-left: 0.2rem; 
     transition: color 0.3s ease;
 }
 
@@ -127,47 +131,58 @@ body {
 .cards-container {
     display: flex;
     justify-content: center;
-    gap: 200px;
-    padding: 40px 20px;
+    gap: 20rem;
+    padding: 4rem 2rem;
 }
 
 .car-card {
-    width: 468px;
-    height: 475px;
+    width: 360px;
+    height: 390px;
+    padding: 1rem;
+    background-color: #575757;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: white;
+}
+
+.bg {
+    position: absolute;
+    width: 340px;
+    height: 369px;
+    top: 0;
+    z-index: 2;
     background: linear-gradient(to bottom, #575757, #212121);
     box-shadow: inset 5px 5px 10px rgba(255, 255, 255, 0.3), 
                 inset -5px -5px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border-radius: 5px;
+    backdrop-filter: blur(24px);
+    border-radius: 0.6rem;
+    overflow: hidden; 
+    padding: 1rem;
+    border-radius: 2rem;
+    margin-top: 10px;
 }
 
 .card-title {
-    color: white;
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin: 1rem;
     text-align: center;
+    justify-content: center;
+    font-family: 'Nasalization';
 }
 
 .car-image {
-    width: 370px;
-    height: 216px;
-    margin-bottom: 20px;
-    display: flex;
+    width: 100%;
+    height: 100%;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .placeholder-image {
     width: 100%;
     height: 100%;
-    background-color: #777;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
     border-radius: 16px;
 }
 
@@ -175,19 +190,63 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
 }
 
 .info-item {
-    color: white;
-    font-size: 18px;
+    font-size: 21px;
     margin: 10px 0;
 }
 
 
+.blob {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    background-color: #f7ff69;
+    opacity: 0.7;
+    filter: blur(1.2rem);
+    animation: blob-bounce 5s infinite ease;
+}
+
+
+  
+@keyframes blob-bounce {
+    0% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+    }
+
+    50% {
+        transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+    }
+
+    75% {
+        transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+    }
+
+    100% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+}
+  
+.car-card, .card-title, .placeholder-image, .car-image, .card-info, .info-item{
+    z-index: 3;/* Más alto que el .bg */
+    position: relative;/* Para que el z-index se aplique */
+}
+
+
+
+
 .button-container {
     position: absolute;
-    left: 50px;
+    left: 5rem;
     bottom: 10px;
 }
 
@@ -217,7 +276,7 @@ body {
 }
 
 /* Media queries para hacer todo responsive */
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
     .button-container {
         left: calc(50% - 347px); 
     }
@@ -227,7 +286,7 @@ body {
     .cards-container {
         flex-direction: column;
         align-items: center;
-        gap: 40px;
+        gap: 4rem;
     }
     
     .car-card {
@@ -243,7 +302,7 @@ body {
     
     .button-container {
         position: static; 
-        margin: 20px 0 0 50px; 
+        margin: 20px 0 0 5rem; 
     }
 }
 
@@ -277,4 +336,4 @@ body {
     .button-container {
         margin: 20px 0 0 20px;
     }
-}
+} */
