@@ -26,6 +26,8 @@ session_start();
         </a>
     </div>
 </header>
+
+
     <main class="carrito-main">
         <div class="carrito-container">
             <!-- Repite este bloque por cada carro del carrito -->

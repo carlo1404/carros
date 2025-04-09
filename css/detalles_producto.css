@@ -11,8 +11,7 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 22%, rgba(153,153,153,1) 71%);
+    background: #0a0a0a;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -69,19 +68,11 @@ body {
 }
 
 .header__buttons {
-    display: flex;
-    gap: 1rem;
+    cursor: pointer;
 }
 
-.header__button {
-    padding: 0.5rem 1.5rem;
-    border: 1px solid white;
-    background-color: transparent;
-    color: white;
-    font-size: 1.2rem;
+.header_buttons,img{
     cursor: pointer;
-    border-radius: 0.3rem;
-    text-transform: uppercase;
 }
 
 .header__button--config {
@@ -231,16 +222,26 @@ body {
 }
 
 .product__button--primary {
-    background: rgb(11,255,30);
-    background: linear-gradient(90deg, rgba(11,255,30,1) 0%, rgba(7,153,18,1) 100%);
-    color: white;
+    background-color: #111;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+
 .product__button--secondary {
-    background: rgb(43,45,66);
-    background: linear-gradient(90deg, rgba(43,45,66,1) 4%, rgba(109,115,168,1) 36%);
-    color: white;
+    background-color: #111;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
 
 .footer {
     background-color: #000;
