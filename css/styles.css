@@ -49,7 +49,6 @@ body {
     background-color: var(--color-primary-light);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-/* ==== HEADER ESTILO OSCURO PREMIUM ==== */
 
 header {
     background: linear-gradient(90deg, #0e0e0e 0%, #1a1a1a 100%);
@@ -79,18 +78,82 @@ header {
 }
 
 /* Menú */
-.menu-btn img {
-    width: 36px;
-    height: 36px;
+/* === SECCIÓN MIS DATOS (Perfil de Usuario) === */
+
+.perfil-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    background-color: #1e1e1e;
+    padding: 3rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.15);
+    color: #f0f0f0;
+}
+
+.perfil-container h2 {
+    font-size: 2.6rem;
+    color: #f5c518;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.perfil-foto {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.perfil-foto img {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    box-shadow: 0 0 10px rgba(245, 197, 24, 0.4) !important;
+}
+
+.perfil-foto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.perfil-dato {
+    font-size: 1.6rem;
+    background-color: #2a2a2a;
+    padding: 1.2rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.perfil-dato span {
+    color: #f5c518;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Botón Cambiar Contraseña */
+.perfil-acciones {
+    display: flex;
+    justify-content: center;
+}
+
+.boton-cambiar {
+    background-color: #f5c518;
+    color: #000;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.8rem;
     cursor: pointer;
-    filter: invert(1);
-    transition: transform 0.2s ease;
+    transition: background-color 0.3s ease;
 }
 
-.menu-btn img:hover {
-    transform: scale(1.15);
+.boton-cambiar:hover {
+    background-color: #ffdc34;
 }
-
 /* Carrito */
 .cart-link {
     display: flex;
@@ -239,34 +302,6 @@ header {
 
 
 
-/* MENÚ DESPLEGABLE DEL HEADER (dropdown) */
-.dropdown__wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-/* --- Sección Carrito (Dropdown) --- */
-/* Modificado: en lugar de right: 0, se coloca left: 0 para ubicarlo al lado izquierdo del header */
-.header__dropdown {
-    display: none;
-    position: absolute;
-    top: 4rem; /* Ajusta según tu diseño */
-    left: 0;
-    background-color: #222; /* Fondo neutro */
-    padding: 1rem;
-    color: #fff;
-    z-index: 230;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.3);
-    min-width: 200px;
-}
-.header__dropdown.active {
-    display: block;
-    animation: fadeIn 0.3s ease-in-out;
-}
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
