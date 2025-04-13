@@ -364,12 +364,34 @@ header {
     padding: 4px 8px;
 }
 
+/* Estilo general para el enlace de configuración */
+.config-link {
+    color: #000 !important;  /* Color por defecto */
+    text-decoration: none !important; /* Sin subrayado */
+    font-size: 16px !important;  /* Tamaño de fuente */
+    padding: 5px 10px !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+/* Estilo cuando el enlace está activo */
+.config-link.active {
+    color: #ff0 !important;  /* Cambia el color al que prefieras cuando el enlace esté activo */
+    font-weight: bold !important;  /* Hace el texto más destacado */
+    background-color: rgba(255, 255, 0, 0.1) !important;  /* Fondo sutil al pasar por el enlace */
+    border-radius: 5px !important; /* Agrega bordes redondeados si quieres */
+}
+
+/* Agregar un efecto cuando el usuario pase el mouse por encima */
+.config-link:hover {
+    color: #ff0 !important;  /* Cambia el color al pasar el mouse */
+    background-color: rgba(255, 255, 0, 0.2) !important; /* Fondo más destacado al pasar el mouse */
+}       
 /* FOOTER */
 .footer {
     background-color: #000;
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-betweent;
     align-items: center;
     padding: 1rem 4rem;
     font-family: 'Arial Black', sans-serif;

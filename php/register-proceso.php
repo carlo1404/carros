@@ -28,10 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Encriptar la contraseña
     $contrasenaSegura = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    // Insertar nuevo usuario
-    $sql = "INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)";
+    // Asignar el rol dependiendo del correo
+    $rol = (str_ends_with($email, '@admin.com')) ? 'admin' : 'usuario';
+
+    // Insertar nuevo usuario con rol
+    $sql = "INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql);
-    $stmt->bind_param("sss", $nombre, $email, $contrasenaSegura);
+    $stmt->bind_param("ssss", $nombre, $email, $contrasenaSegura, $rol);
 
     if ($stmt->execute()) {
         header("Location: login.php?registro=exitoso");

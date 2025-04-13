@@ -148,7 +148,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
     <!-- Script del carrusel -->
     <script src="js/carousel.js"></script>
-
     <script>
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle');
@@ -167,12 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Agregar al carrito sin recargar
+    // Agregar al carrito sin recargar la página
     const formularios = document.querySelectorAll('.vehiculo__card');
 
     formularios.forEach(formulario => {
         formulario.addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita que se recargue la página
+            e.preventDefault();
 
             const formData = new FormData(formulario);
 
@@ -182,29 +181,38 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(respuesta => respuesta.json())
             .then(data => {
-                const mensaje = formulario.querySelector('.mensaje-agregado');
-                mensaje.textContent = '✅ Agregado al carrito';
-                mensaje.style.color = 'green';
+                if (data.total !== undefined) {
+                    // Mostrar mensaje
+                    let mensaje = formulario.querySelector('.mensaje-agregado');
+                    if (!mensaje) {
+                        mensaje = document.createElement('div');
+                        mensaje.className = 'mensaje-agregado';
+                        formulario.appendChild(mensaje);
+                    }
+                    mensaje.textContent = '✅ Agregado al carrito';
+                    mensaje.style.color = 'green';
 
-                // ACTUALIZA EL CONTADOR
-                const contador = document.querySelector('.carrito__contador');
-                if (contador) {
-                    contador.textContent = data.total;
-                } else {
-                    const nuevoContador = document.createElement('span');
-                    nuevoContador.className = 'carrito__contador';
-                    nuevoContador.textContent = data.total;
+                    // Actualizar o crear el contador
+                    const iconoCarrito = document.querySelector('.cart-link');
+                    let contador = iconoCarrito.querySelector('.cart-badge');
 
-                    const iconoCarrito = document.querySelector('.dropdown__cart');
-                    if (iconoCarrito) {
+                    if (contador) {
+                        contador.textContent = data.total;
+                    } else {
+                        const nuevoContador = document.createElement('span');
+                        nuevoContador.className = 'cart-badge';
+                        nuevoContador.textContent = data.total;
                         iconoCarrito.appendChild(nuevoContador);
                     }
-                }
 
-                // Quita el mensaje después de 2 segundos
-                setTimeout(() => {
-                    mensaje.textContent = '';
-                }, 2000);
+                    // Limpiar mensaje luego de 2 segundos
+                    setTimeout(() => {
+                        mensaje.textContent = '';
+                        mensaje.style.color = '';
+                    }, 2000);
+                } else {
+                    console.error('Respuesta inesperada:', data);
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
