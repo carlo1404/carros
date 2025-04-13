@@ -1,166 +1,275 @@
 /* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  /* Fondo general */
-  body {
-    background-color: #121212;
-    color: #f5f5f5;
-  }
-  
-  /* Header */
-  .carrito-header {
-    background-color: #000;
-    color: #fff;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #444;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
-  }
-  
-  .logo-contenedor {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex: 1;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo general */
+body {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+/* Header */
+.carrito-header {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #444;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+.logo-contenedor {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.logo-contenedor h1 {
+  font-size: 26px;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 1.5px;
+}
+
+.carrito-header h1 {
+  flex: 2;
+  text-align: center;
+  font-size: 26px;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+.logo {
+  width: 90px;
+  height: 60px;
+}
+
+.btn-home img {
+  width: 30px;
+  filter: brightness(100%);
+  transition: transform 0.2s ease;
+}
+
+.btn-home img:hover {
+  transform: scale(1.1);
+}
+
+/* Contenedor principal */
+.carrito-main {
+  padding: 40px 20px;
+  min-height: 80vh;
+}
+
+/* Cards */
+.carrito-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carrito-card {
+  background-color: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.carrito-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+}
+
+.carrito-imagen {
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(135deg, #2b2b2b, #1a1a1a);
+  border-radius: 12px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrito-imagen img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.carrito-titulo {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.carrito-descripcion {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.carrito-btn {
+  background-color: #111;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.carrito-btn:hover {
+  background-color: #1f1f1f;
+  transform: scale(1.05);
+}
+
+/* Botón Pagar */
+.carrito-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.pagar-todo-btn {
+  background-color: #111;
+  color: #fff;
+  font-weight: bold;
+  padding: 15px 35px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  margin: 10px; /* espacio entre los botones */
+}
+
+.pagar-todo-btn:hover {
+  background-color: #1b1b1b;
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos generales de las cards del carrito */
+.carrito-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.carrito-card {
+  width: 300px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carrito-imagen img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.carrito-titulo {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.carrito-descripcion {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.carrito-precio {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+/* Estilos para los botones */
+.carrito-btn {
+  background-color: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px; /* Más espacio entre botones */
+}
+
+.carrito-btn:hover {
+  background-color: #1f1f1f;
+}
+
+/* Estilo para el botón de eliminar */
+.eliminar-btn {
+  background-color: #dc3545;
+  font-size: 1rem;
+}
+
+.eliminar-btn:hover {
+  background-color: #c82333;
+}
+
+/* Estilos para el pie del carrito */
+.carrito-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+}
+
+.pagar-todo-btn {
+  background-color: #111;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.pagar-todo-btn:hover {
+  background-color: #1b1b1b;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
   .logo-contenedor h1 {
-    font-size: 26px;
-    text-transform: uppercase;
-    color: #fff;
-    letter-spacing: 1.5px;
-  }
-  
-  .carrito-header h1 {
-    flex: 2;
-    text-align: center;
-    font-size: 26px;
-    text-transform: uppercase;
-    color: #fff;
-    letter-spacing: 1.5px;
-    margin: 0;
-  }
-  .logo {
-    width: 90px;
-    height: 60px;
-  }
-  
-  .btn-home img {
-    width: 30px;
-    filter: brightness(100%);
-    transition: transform 0.2s ease;
-  }
-  
-  .btn-home img:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Contenedor principal */
-  .carrito-main {
-    padding: 40px 20px;
-    min-height: 80vh;
-  }
-  
-  /* Cards */
-  .carrito-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .carrito-card {
-    background-color: #1e1e1e;
-    border: 1px solid #2e2e2e;
-    border-radius: 16px;
-    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .carrito-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
-  }
-  
-  .carrito-imagen {
-    width: 100%;
-    height: 160px;
-    background: linear-gradient(135deg, #2b2b2b, #1a1a1a);
-    border-radius: 12px;
-    margin-bottom: 15px;
-  }
-  
-  .carrito-titulo {
     font-size: 20px;
-    color: #fff;
-    margin-bottom: 10px;
   }
-  
-  .carrito-descripcion {
-    font-size: 14px;
-    color: #ccc;
-    margin-bottom: 15px;
-  }
-  
-  .carrito-btn {
-    background-color: #111;
-    color: #fff;
-    border: 2px solid #fff;
-    padding: 10px 25px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .carrito-btn:hover {
-    background-color: #1f1f1f;
-    transform: scale(1.05);
-  }
-  
-  /* Botón Pagar */
-  .carrito-footer {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-  }
-  
+
   .pagar-todo-btn {
-    background-color: #111;
-    color: #fff;
-    font-weight: bold;
-    padding: 15px 35px;
-    border: 2px solid #fff;
-    border-radius: 30px;
-    font-size: 17px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 300px;
   }
-  
-  .pagar-todo-btn:hover {
-    background-color: #1b1b1b;
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(255, 255, 255, 0.2);
-  }
-  
-  /* Responsive tweaks */
-  @media (max-width: 600px) {
-    .logo-contenedor h1 {
-      font-size: 20px;
-    }
-  
-    .pagar-todo-btn {
-      width: 100%;
-      max-width: 300px;
-    }
-  }
-  
+}

@@ -17,16 +17,33 @@ if (isset($_POST['id'], $_POST['nombre'], $_POST['precio'])) {
         'precio' => $_POST['precio']
     ];
 
-    // Agregar el producto al carrito
-    $_SESSION['carrito'][] = $producto;
+    // Verificar si el producto ya está en el carrito
+    $producto_existente = false;
+    foreach ($_SESSION['carrito'] as $item) {
+        if ($item['id'] == $producto['id']) {
+            $producto_existente = true;
+            break;
+        }
+    }
+
+    // Si el producto no está en el carrito, agregarlo
+    if (!$producto_existente) {
+        $_SESSION['carrito'][] = $producto;
+        $response = [
+            'success' => true,
+            'total' => count($_SESSION['carrito']),
+            'message' => 'Producto agregado correctamente'
+        ];
+    } else {
+        $response = [
+            'success' => false,
+            'message' => 'Este producto ya está en tu carrito'
+        ];
+    }
 
     // Responder con éxito y cantidad total en el carrito
     header('Content-Type: application/json');
-    echo json_encode([
-        'success' => true,
-        'total' => count($_SESSION['carrito']),
-        'message' => 'Producto agregado correctamente'
-    ]);
+    echo json_encode($response);
     exit;
 }
 
@@ -37,3 +54,4 @@ echo json_encode([
     'message' => 'Faltan datos del producto'
 ]);
 exit;
+?>

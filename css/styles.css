@@ -366,7 +366,7 @@ header {
 
 /* Estilo general para el enlace de configuración */
 .config-link {
-    color: #000 !important;  /* Color por defecto */
+    color: white !important;  /* Color por defecto */
     text-decoration: none !important; /* Sin subrayado */
     font-size: 16px !important;  /* Tamaño de fuente */
     padding: 5px 10px !important;

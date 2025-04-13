@@ -63,3 +63,76 @@ $current_page = basename($_SERVER['PHP_SELF']);  // Obtener la página actual
 
     </div>
 </header>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const dropdown = document.querySelector('.header__dropdown');
+
+    if (menuToggle && dropdown) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target) && !menuToggle.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    }
+
+    // Agregar al carrito sin recargar la página
+    const formularios = document.querySelectorAll('.vehiculo__card');
+
+    formularios.forEach(formulario => {
+        formulario.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(formulario);
+
+            fetch('php/agregar_carrito.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(respuesta => respuesta.json())
+            .then(data => {
+                if (data.total !== undefined) {
+                    // Mostrar mensaje
+                    let mensaje = formulario.querySelector('.mensaje-agregado');
+                    if (!mensaje) {
+                        mensaje = document.createElement('div');
+                        mensaje.className = 'mensaje-agregado';
+                        formulario.appendChild(mensaje);
+                    }
+                    mensaje.textContent = '✅ Agregado al carrito';
+                    mensaje.style.color = 'green';
+
+                    // Actualizar o crear el contador
+                    const iconoCarrito = document.querySelector('.cart-link');
+                    let contador = iconoCarrito.querySelector('.cart-badge');
+
+                    if (contador) {
+                        contador.textContent = data.total;
+                    } else {
+                        const nuevoContador = document.createElement('span');
+                        nuevoContador.className = 'cart-badge';
+                        nuevoContador.textContent = data.total;
+                        iconoCarrito.appendChild(nuevoContador);
+                    }
+
+                    // Limpiar mensaje luego de 2 segundos
+                    setTimeout(() => {
+                        mensaje.textContent = '';
+                        mensaje.style.color = '';
+                    }, 2000);
+                } else {
+                    console.error('Respuesta inesperada:', data);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+});
+</script>
