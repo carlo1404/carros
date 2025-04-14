@@ -1,6 +1,7 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
+    margin: 0;
 }
 
 *, *:before, *:after {
@@ -76,6 +77,10 @@ header {
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 0 10px rgba(0, 225, 255, 0.4) !important;
 }
 
 .perfil-foto img {
@@ -83,14 +88,6 @@ header {
     height: 40px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
-    box-shadow: 0 0 10px rgba(0, 225, 255, 0.4) !important;
-}
-
-.perfil-foto {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 1rem;
     box-shadow: 0 0 10px rgba(0, 225, 255, 0.4) !important;
 }
 
@@ -130,6 +127,12 @@ header {
 .boton-cambiar:hover {
     background-color: #ffdc34;
 }
+
+.boton-cambiar:focus {
+    outline: 2px solid #f5c518;
+    outline-offset: 2px;
+}
+
 /* Carrito */
 .cart-link {
     display: flex;
@@ -406,22 +409,22 @@ header {
 
 /* Footer */
 .footer {
-    background-color:#1e1e1e;;
+    background-color: #1e1e1e;
     display: flex;
     color: white;
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
     text-align: center;
-    /* flex-wrap: wrap; */
 }
 
-.footer__column {
-    display: flex;
+.footer__container,
+.footer__section {
     flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: 1rem;
-    /* min-width: 150px; */
+    padding: 1rem;
 }
 
 .footer__icon {
