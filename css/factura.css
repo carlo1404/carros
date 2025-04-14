@@ -1,0 +1,149 @@
+ * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            color: #f0f0f0;
+            padding: 2rem;
+            min-height: 100vh;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(30, 30, 30, 0.75);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 0 40px rgba(0, 255, 204, 0.1);
+            animation: slideUp 1s ease;
+        }
+
+        header, footer {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #00ffc3;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background-color: rgba(255,255,255,0.02);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 15px rgba(0,255,204,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.01);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 10px;
+            background: #222;
+            color: #fff;
+            margin-top: 0.5rem;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            background: #2c2c2c;
+            box-shadow: 0 0 8px #00ffc3;
+        }
+
+        .productos-lista li {
+            padding: 0.5rem;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .total {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #00ffae;
+            margin-top: 1rem;
+            text-align: right;
+        }
+
+        label {
+            display: block;
+            margin: 0.7rem 0 0.3rem;
+        }
+
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        button {
+            background: #00ffc3;
+            color: #111;
+            border: none;
+            padding: 0.9rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            width: 100%;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: #00ffae;
+            transform: scale(1.03);
+        }
+
+        .alerta {
+            background: #ff4b4b;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .volver {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #00ffc3;
+            text-decoration: none;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes slideUp {
+            from {transform: translateY(50px); opacity: 0;}
+            to {transform: translateY(0); opacity: 1;}
+        }
+
+.alerta__error {
+    background-color: #ff4b4b;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
