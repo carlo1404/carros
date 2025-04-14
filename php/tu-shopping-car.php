@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../conexion.php');  // Asegúrate de tener tu archivo de conexión a la base de datos
+require_once('../conexion.php');  
 
 // Verificar si el carrito tiene productos
 if (!isset($_SESSION['carrito']) || count($_SESSION['carrito']) == 0) {
@@ -8,13 +8,13 @@ if (!isset($_SESSION['carrito']) || count($_SESSION['carrito']) == 0) {
     exit();
 }
 
-// Obtener los productos desde la base de datos utilizando el 'id' del arreglo almacenado en la sesión
+// esto es para obtener la id del producto y la cantidad de este en el carrito
 $productos_carrito = [];
 foreach ($_SESSION['carrito'] as $producto) {   // $producto es un arreglo asociativo
     $stmt = $pdo->prepare("SELECT * FROM productos WHERE id = :id");
-    $stmt->bindParam(':id', $producto['id'], PDO::PARAM_INT);
-    $stmt->execute();
-    $productoDatos = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->bindParam(':id', $producto['id'], PDO::PARAM_INT); // esto es para que el valor del id sea un int
+    $stmt->execute(); // esto es para ejecutar la consulta
+    $productoDatos = $stmt->fetch(PDO::FETCH_ASSOC); // y esto es para obtener los datos de la consulta
     if ($productoDatos) {
         $productos_carrito[] = $productoDatos; // Agregar el producto completo al array
     }
@@ -48,7 +48,7 @@ foreach ($_SESSION['carrito'] as $producto) {   // $producto es un arreglo asoci
 <main class="carrito-main">
     <div class="carrito-container">
         <?php
-        // Recorrer los productos en el carrito y generar las cards dinámicamente
+        // recorremos el array de productos y mostramos cada uno de ellos para que generen cards 
         foreach ($productos_carrito as $producto) {
             echo "<div class='carrito-card'>";
             echo "<div class='carrito-imagen'><img src='../img/{$producto['imagen']}' alt='{$producto['nombre']}'></div>";

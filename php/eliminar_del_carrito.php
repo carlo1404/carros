@@ -4,7 +4,7 @@ session_start();
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // Buscar y eliminar el producto del array del carrito
+    //  buscamos el id en el array de productos del carrito
     if (isset($_SESSION['carrito'])) {
         $key = array_search($id, $_SESSION['carrito']);
         if ($key !== false) {
