@@ -149,6 +149,6 @@ if (session_status() == PHP_SESSION_NONE) {
 <!-- Script del carrusel -->
 <script src="js/carousel.js"></script>
 
-<?php include 'php/include/footer.php'; ?>
+<<?php include 'php/include/footer.php'; ?>
 </body>
 </html>

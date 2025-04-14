@@ -386,55 +386,41 @@ header {
     color: #ff0 !important;  /* Cambia el color al pasar el mouse */
     background-color: rgba(255, 255, 0, 0.2) !important; /* Fondo más destacado al pasar el mouse */
 }       
-/* FOOTER */
+
 .footer {
     background-color: #000;
-    color: white;
     display: flex;
-    justify-content: space-betweent;
+    justify-content: space-between;
     align-items: center;
-    padding: 1rem 4rem;
-    font-family: 'Arial Black', sans-serif;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    padding: 2rem 1rem;
+    text-align: center;
+    /* flex-wrap: wrap; */
 }
 
-.footer__item {
+.footer__column {
     display: flex;
-}
-
-.footer__text {
-    margin-top: 0.5rem;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.footer__line {
-    width: 10rem;
-    border: 0.1rem solid white;
-    margin-top: 0.3rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    /* min-width: 150px; */
 }
 
 .footer__icon {
-    width: 5rem;
-    height: 5rem;
+    width: 50px;
+    height: 50px;
 }
 
-.footer__center {
-    flex-direction: row;
-    gap: 2rem;
+.footer__logo {
+    width: 70px;
+    height: auto;
 }
 
-.footer__dealer-name {
-    font-size: 2rem;
-    white-space: nowrap;
+.footer__text,
+.footer__brand {
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
-.footer__car-icon {
-    width: 6rem;
-    height: 6rem;
-}
 
 /* CARRUSEL */
 .main__content {
