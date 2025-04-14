@@ -3,10 +3,12 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$imagenPerfil = "/carros/img/perfil.jpg";  // Imagen predeterminada
+// Imagen por defecto
+$imagenPerfil = "/carros/img/perfil.jpg";
 
-if (isset($_SESSION['usuario']) && !empty($_SESSION['usuario']['imagen'])) {
-    $imagenPerfil = "/carros/uploads/" . $_SESSION['usuario']['imagen'];
+// Si el usuario está logueado, usamos el archivo que entrega la imagen desde la base de datos
+if (isset($_SESSION['usuario'])) {
+    $imagenPerfil = "/carros/php/mostrar-imagen.php";
 }
 
 $rolUsuario = $_SESSION['usuario']['rol'] ?? '';
@@ -63,6 +65,7 @@ $current_page = basename($_SERVER['PHP_SELF']);  // Obtener la página actual
 
     </div>
 </header>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle');

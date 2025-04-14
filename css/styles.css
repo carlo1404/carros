@@ -108,7 +108,7 @@ header {
     height: 40px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
-    box-shadow: 0 0 10px rgba(245, 197, 24, 0.4) !important;
+    box-shadow: 0 0 10px rgba(0, 225, 255, 0.4) !important;
 }
 
 .perfil-foto {
@@ -116,6 +116,7 @@ header {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-top: 1rem;
+    box-shadow: 0 0 10px rgba(0, 225, 255, 0.4) !important;
 }
 
 .perfil-dato {
