@@ -388,11 +388,12 @@ header {
 }       
 
 .footer {
-    background-color: #000;
+    background-color:#1e1e1e;;
     display: flex;
+    color: white;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 1rem;
+    padding: 2rem;
     text-align: center;
     /* flex-wrap: wrap; */
 }
@@ -406,18 +407,18 @@ header {
 }
 
 .footer__icon {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
 }
 
 .footer__logo {
-    width: 70px;
+    width: 100px;
     height: auto;
 }
 
 .footer__text,
 .footer__brand {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-weight: bold;
 }
 
