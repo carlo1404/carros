@@ -242,53 +242,6 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-
-.footer {
-    background-color: #000;
-    color: #fff;
-    padding: 10px 0;
-    margin-top: 1rem;
-}
-
-.footer__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer__section {
-    display: flex;
-    flex-direction: row; /* Cambiado de column a row */
-    align-items: center;
-    text-align: center;
-}
-
-.footer__icon {
-    margin-bottom: 0; /* Eliminamos el margen inferior */
-    margin-right: 1.5rem; /* Agregamos margen a la derecha para separar el icono del texto */
-}
-
-.footer__icon-image {
-    width: 10rem;
-}
-
-.footer__text {
-    font-size: 12px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.footer__logo {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.footer__car-icon {
-    display: flex;
-    justify-content: center;
-}
-
 main.container {
     flex: 1;
     display: flex;
