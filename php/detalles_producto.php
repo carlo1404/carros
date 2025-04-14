@@ -6,11 +6,9 @@
     <title>Detalle de Vehículo</title>
     <link rel="stylesheet" href="../css/Normalize.css">
     <link rel="stylesheet" href="../css/detalles_producto.css">
-    <link rel="import" href="php/inclde/footer.php">
-    <link rel="import" href="php/inclde/header.php">
 </head>
 <body>
-    
+        <?php include 'include/header.php'; ?>
     <main class="container">
         <div class="product">
             <div class="product__image-container">
@@ -46,12 +44,14 @@
                     <textarea class="product__info-textarea" readonly>Vehículo en excelentes condiciones, único dueño, mantenimiento al día, aire acondicionado, sistema de navegación, cámara de reversa y más características.</textarea>
                 </div>
                 <div class="product__actions">
-                    <a href="#Pagina murillo"><button class="product__button product__button--primary">COMPRAR</button></a>
+                    <a href="#pagina murillo"><button class="product__button product__button--primary">COMPRAR</button></a>
                     <button class="product__button product__button--secondary">CARRITO</button>
                 </div>
             </div>
         </div>
     </main>
+    
+    <?php include 'include/footer.php'; ?>
         </div>
     </footer>
 </body>
