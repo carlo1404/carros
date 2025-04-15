@@ -114,7 +114,10 @@ CREATE TABLE `usuarios` (
   `password` varchar(255) NOT NULL,
   `rol` varchar(20) DEFAULT NULL,
   `imagen` varchar(255) DEFAULT NULL,
-  `telefono` varchar(20) DEFAULT NULL
+  `telefono` varchar(20) DEFAULT NULL,
+  `reset_token` VARCHAR(255) NULL,
+  `token_expira` DATETIME NULL;
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --

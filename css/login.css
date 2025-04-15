@@ -1,10 +1,9 @@
-/* estilos/iniciar-sesion.css */
+/* estilos/login.css adaptado a BEM */
 
 /* Estandarizo estilos */
 html {
-    /* margin: 0; */
     box-sizing: border-box;
-    font-size: 62.5%; /* 1rem = 10px */
+    font-size: 62.5%;
 }
 
 *,
@@ -13,7 +12,11 @@ html {
     box-sizing: inherit;
 }
 
-.body {
+.login-body, 
+.forgot-password, 
+.recovery-link,
+.change-password,
+.update-password {
     font-family: sans-serif;
     margin: 0;
     background: url(../img/image_fx.jpg) no-repeat center center fixed;
@@ -22,11 +25,11 @@ html {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-size: 1.6rem; /* Establece el tamaño de fuente base para el body */
+    font-size: 1.6rem;
 }
 
 /* Header */
-.header {
+.login-header {
     background-color: #222;
     color: #fff;
     padding: 2rem;
@@ -35,21 +38,21 @@ html {
     align-items: center;
 }
 
-.header__logo {
+.login-header__logo {
     height: 4rem;
 }
 
-.header__home-link {
+.login-header__home-link {
     display: block;
     text-decoration: none;
 }
 
-.header__home-icon {
+.login-header__home-icon {
     height: 4rem;
 }
 
 /* Login Main */
-.login {
+.login-main {
     flex-grow: 1;
     display: flex;
     justify-content: center;
@@ -57,8 +60,8 @@ html {
     padding: 4rem;
 }
 
-.login__form {
-    background: rgba(15, 15, 15, 0.8);    
+.login-main__form {
+    background: rgba(15, 15, 15, 0.8);
     padding: 4rem;
     border-radius: 12px;
     text-align: center;
@@ -68,20 +71,22 @@ html {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-} @media(width < 768px) {
-    .login__form {
+} 
+
+@media(width < 768px) {
+    .login-main__form {
         width: 100%;
         height: 40rem;
         padding: 6rem 2rem;
     }
 }
 
-.login__logo {
+.login-main__logo {
     height: 6rem;
     margin-bottom: 2rem;
 }
 
-.login__input {
+.login-main__input {
     width: 100%;
     padding: 1rem;
     margin-bottom: 1.2rem;
@@ -93,18 +98,17 @@ html {
     font-size: 1.6rem;
 }
 
-.login__input::placeholder {
+.login-main__input::placeholder {
     color: rgba(255, 255, 255, 0.7);
     font-size: 1.6rem;
 }
 
-.login__input:focus {
+.login-main__input:focus {
     outline: none;
     border:1px solid #ccc;
 }
 
-/* boton */
-.login__button {
+.login-main__button {
     position: relative;
     background-color: transparent;
     color: #fff;
@@ -121,9 +125,8 @@ html {
     z-index: 1;
 }
 
-/* Líneas arriba y abajo */
-.login__button::before,
-.login__button::after {
+.login-main__button::before,
+.login-main__button::after {
     content: "";
     position: absolute;
     height: 2px;
@@ -133,48 +136,90 @@ html {
     z-index: 1;
 }
 
-.login__button::before {
+.login-main__button::before {
     top: 0;
     left: 0;
     transform: scaleX(0);
     transform-origin: left;
 }
 
-.login__button::after {
+.login-main__button::after {
     bottom: 0;
     right: 0;
     transform: scaleX(0);
     transform-origin: right;
 }
 
-/* Hover Effect */
-.login__button:hover::before,
-.login__button:hover::after {
+.login-main__button:hover::before,
+.login-main__button:hover::after {
     transform: scaleX(1);
 }
 
-.login__button:hover {
+.login-main__button:hover {
     color: #000;
     background-color: #fff;
     border-color: #fff;
 }
 
-/* boton */
-
-a.login__link {
+.login-main__link {
     display: block;
     text-decoration: none;
     color: #fff;
     font-size: 1.4rem;
     margin-bottom: 1rem;
 }
-a.login__link:hover {
+
+.login-main__link:hover {
     text-decoration: underline;
 }
 
-
 /* Footer */
-.footer {
+.login-footer {
+    background: #141414;
+    padding: 30px 20px 10px;
+    border-top: 1px solid #333;
+}
+
+.login-footer__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.login-footer__section-title {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #f1f1f1;
+}
+
+.login-footer__section-text {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.login-footer__social-icon {
+    width: 25px;
+    margin: 0 5px;
+    filter: brightness(0.8);
+    transition: 0.3s ease;
+}
+
+.login-footer__social-icon:hover {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+}
+
+.login-footer__copyright {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+}
+
+ /* Footer */
+ .footer {
     background: #141414;
     padding: 30px 20px 10px;
     border-top: 1px solid #333;
@@ -218,4 +263,239 @@ a.login__link:hover {
     margin-top: 10px;
   }
   
+  /* Olvide contraseña */
+  
+.forgot-password, 
+.recovery-link,
+.update-password,
+.change-password  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../img/image_fx2.jpg) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 2rem;
+}
 
+.forgot-password__main {
+    background: rgba(15, 15, 15, 0.8);
+    padding: 4rem;
+    border-radius: 12px;
+    text-align: center;
+    width: 100%;
+    max-width: 40rem;
+    border: 1px solid white;
+}
+
+.forgot-password__title {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+}
+
+.forgot-password__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.forgot-password__label {
+    font-size: 1.6rem;
+    text-align: left;
+}
+
+.forgot-password__input {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.6rem;
+}
+
+.forgot-password__input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.forgot-password__input:focus {
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.forgot-password__button {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+    font-weight: bold;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.forgot-password__button:hover {
+    color: #000;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+/* ************Envio de enlace****************** */
+
+.recovery-link__main {
+    background: rgba(15, 15, 15, 0.8);
+    padding: 4rem;
+    border-radius: 12px;
+    text-align: center;
+    width: 100%;
+    max-width: 40rem;
+    border: 1px solid white;
+}
+
+.recovery-link__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.recovery-link__success {
+    font-size: 1.8rem;
+    color: #4caf50;
+    margin-bottom: 1rem;
+}
+
+.recovery-link__error {
+    font-size: 1.8rem;
+    color: #f44336;
+    margin-bottom: 1rem;
+}
+
+.recovery-link__link {
+    font-size: 1.6rem;
+    color: #6d6d6d;
+    text-decoration: none;
+    word-wrap: break-word;
+}
+
+.recovery-link__link:hover {
+    color: #fff;
+}
+
+/* ************Cambia contraseña***************** */
+
+
+.change-password__main {
+    background: rgba(15, 15, 15, 0.8);
+    padding: 4rem;
+    border-radius: 12px;
+    text-align: center;
+    width: 100%;
+    max-width: 40rem;
+    border: 1px solid white;
+}
+
+.change-password__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.change-password__title {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+}
+
+.change-password__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.change-password__label {
+    font-size: 1.6rem;
+    text-align: left;
+}
+
+.change-password__input {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.6rem;
+}
+
+.change-password__input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.change-password__input:focus {
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.change-password__button {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+    font-weight: bold;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.change-password__button:hover {
+    color: #000;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.change-password__error {
+    font-size: 1.8rem;
+    color: #f44336;
+    margin-bottom: 1rem;
+}
+
+/* **********Actualizar contraseña************* */
+
+.update-password__main {
+    background: rgba(15, 15, 15, 0.8);
+    padding: 4rem;
+    border-radius: 12px;
+    text-align: center;
+    width: 100%;
+    max-width: 40rem;
+    border: 1px solid white;
+}
+
+.update-password__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.update-password__error {
+    font-size: 1.8rem;
+    color: #f44336;
+    margin-bottom: 1rem;
+}
+
+.update-password__success {
+    font-size: 1.8rem;
+    color: #4caf50;
+    margin-bottom: 1rem;
+}
+
+.update-password__link {
+    font-size: 1.6rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.update-password__link:hover {
+    text-decoration: underline;
+}
