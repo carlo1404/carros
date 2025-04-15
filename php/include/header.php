@@ -32,7 +32,7 @@ $current_page = basename($_SERVER['PHP_SELF']);  // Obtener la página actual
 
                 <!-- Link de configuración si es admin -->
                 <?php if ($rolUsuario === 'admin'): ?>
-                    <a href="/carros/index.php/php/admin/configurar" class="config-link <?= $current_page == 'configurar.php' ? 'active' : '' ?>" title="Configurar">
+                    <a href="#" class="config-link <?= $current_page == 'configurar.php' ? 'active' : '' ?>" title="Configurar">
                         <span>Configurar</span>
                     </a>
                 <?php endif; ?>
