@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-04-2025 a las 00:31:57
+-- Tiempo de generación: 15-04-2025 a las 21:08:57
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -115,19 +115,18 @@ CREATE TABLE `usuarios` (
   `rol` varchar(20) DEFAULT NULL,
   `imagen` varchar(255) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
-  `reset_token` VARCHAR(255) NULL,
-  `token_expira` DATETIME NULL;
-
+  `reset_token` varchar(255) DEFAULT NULL,
+  `token_expira` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `rol`, `imagen`, `telefono`) VALUES
-(6, 'sofia arango jaramillo ', 'sofia@admin.com', '$2y$10$zXiqDt4N0CarlaH3NDiNrOfba4e3iNzUXnCjx.XFYyVjdqnpyUigO', 'admin', '5888cd40-2ae2-11ee-ab60-d7d745a533c2.jpg', '3148723458'),
-(7, 'Carlos Andres Reyes Grajales ', 'brunoreyes150@gmail.com', '$2y$10$0dp2eItjZh/oMeCVkeJ8A./v8hfDS2Z9GOHVwAixvEF6slrYAMwIu', 'usuario', 'Imagen de WhatsApp 2025-03-31 a las 22.21.13_b23c8576.jpg', '3108635728'),
-(8, 'Tralalero tralala', 'bombardirococodrilo14@gmail.com', '$2y$10$92CgFE1STxvVZfRGj.R6n.NymRoPrlmDpB0XEDtKACU4bHZiwdEte', 'usuario', 'Imagen de WhatsApp 2025-03-31 a las 22.21.13_b23c8576.jpg', '3245678193');
+INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `rol`, `imagen`, `telefono`, `reset_token`, `token_expira`) VALUES
+(6, 'sofia arango jaramillo ', 'sofia@admin.com', '$2y$10$zXiqDt4N0CarlaH3NDiNrOfba4e3iNzUXnCjx.XFYyVjdqnpyUigO', 'admin', '5888cd40-2ae2-11ee-ab60-d7d745a533c2.jpg', '3148723458', NULL, NULL),
+(7, 'Carlos Andres Reyes Grajales ', 'brunoreyes150@gmail.com', '$2y$10$0dp2eItjZh/oMeCVkeJ8A./v8hfDS2Z9GOHVwAixvEF6slrYAMwIu', 'usuario', 'Imagen de WhatsApp 2025-03-31 a las 22.21.13_b23c8576.jpg', '3108635728', 'df07774614bb61b5a00d1da81c5b8bd88ec26de1bfedf6d973f3a6fd6a4049b63d11daf502add8f4634722da957866a5c7de', '2025-04-15 19:16:11'),
+(8, 'Tralalero tralala', 'bombardirococodrilo14@gmail.com', '$2y$10$92CgFE1STxvVZfRGj.R6n.NymRoPrlmDpB0XEDtKACU4bHZiwdEte', 'usuario', 'Imagen de WhatsApp 2025-03-31 a las 22.21.13_b23c8576.jpg', '3245678193', NULL, NULL);
 
 --
 -- Índices para tablas volcadas
