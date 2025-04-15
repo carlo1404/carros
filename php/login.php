@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesión</title>
     <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="css/Normalize.css">
+    <link rel="stylesheet" href="../css/Normalize.css">
 </head>
 <body class="login-body">
     <header class="login-header">

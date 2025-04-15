@@ -116,7 +116,6 @@ header {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-top: 1rem;
-    box-shadow: 0 0 10px rgba(0, 225, 255, 0.4) !important;
 }
 
 .perfil-dato {
