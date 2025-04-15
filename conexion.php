@@ -2,7 +2,7 @@
 // Datos de conexión
 $servidor = "localhost";
 $usuario = "root";
-$contrasena = "";  //si alguno necesita cambiar esto por la contraseña haganlo 
+$contrasena = "";  //si alguno necesita cambiar esto por la contraseña haganlo solo para pruebas claramente 
 $base_de_datos = "carros";
 
 try {
