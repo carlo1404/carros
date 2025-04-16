@@ -27,6 +27,10 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `categorias`
 --
 
+CREATE DATABASE carros;
+USE carros;
+-- --------------------------------------------------------
+
 CREATE TABLE `categorias` (
   `id` int(255) NOT NULL,
   `nombre` varchar(100) NOT NULL
@@ -64,7 +68,7 @@ CREATE TABLE `lineas_pedidos` (
 CREATE TABLE `pedidos` (
   `id` int(255) NOT NULL,
   `usuario_id` int(255) NOT NULL,
-  `provincia` varchar(100) NOT NULL,
+  `pais` varchar(100) NOT NULL,
   `localidad` varchar(100) NOT NULL,
   `direccion` varchar(255) NOT NULL,
   `coste` float(200,2) NOT NULL,
@@ -79,7 +83,7 @@ CREATE TABLE `pedidos` (
 -- Volcado de datos para la tabla `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `usuario_id`, `provincia`, `localidad`, `direccion`, `coste`, `estado`, `fecha`, `hora`, `metodo_pago`, `total`) VALUES
+INSERT INTO `pedidos` (`id`, `usuario_id`, `pais`, `localidad`, `direccion`, `coste`, `estado`, `fecha`, `hora`, `metodo_pago`, `total`) VALUES
 (7, 7, 'colombia', 'pereria ', 'manzana11 pereira ', 150000000.00, 'pendiente', '2025-04-16', '22:16:57', 'Nequi', 99999999.99);
 
 -- --------------------------------------------------------

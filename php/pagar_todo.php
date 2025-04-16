@@ -70,8 +70,8 @@ foreach ($_SESSION['carrito'] as $producto) {
         <section class="card">
             <h2>📦 Dirección de Envío</h2>
 
-            <label for="provincia">Provincia:</label>
-            <input type="text" name="provincia" id="provincia" required>
+            <label for="pais">País:</label>
+            <input type="text" name="pais" id="pais" required>
 
             <label for="localidad">Ciudad o Localidad:</label>
             <input type="text" name="localidad" id="localidad" required>

@@ -14,7 +14,7 @@ $usuario_id = $usuario['id'];
 
 // Validar si llegaron los datos del formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $provincia = $_POST['provincia'] ?? '';
+    $pais = $_POST['pais'] ?? '';
     $localidad = $_POST['localidad'] ?? '';
     $direccion = $_POST['direccion'] ?? '';
     $metodo_pago = $_POST['metodo_pago'] ?? '';
@@ -38,12 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hora = date('H:i:s');
 
     // Insertar pedido en la base de datos
-    $stmt = $pdo->prepare("INSERT INTO pedidos (usuario_id, provincia, localidad, direccion, coste, estado, fecha, hora, metodo_pago, total) 
-                           VALUES (:usuario_id, :provincia, :localidad, :direccion, :coste, :estado, :fecha, :hora, :metodo_pago, :total)");
+    $stmt = $pdo->prepare("INSERT INTO pedidos (usuario_id, pais, localidad, direccion, coste, estado, fecha, hora, metodo_pago, total) 
+                           VALUES (:usuario_id, :pais, :localidad, :direccion, :coste, :estado, :fecha, :hora, :metodo_pago, :total)");
 
     $stmt->execute([
         ':usuario_id' => $usuario_id,
-        ':provincia' => $provincia,
+        ':pais' => $pais,
         ':localidad' => $localidad,
         ':direccion' => $direccion,
         ':coste' => $total,
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p><strong>Hora:</strong> <?php echo $hora; ?></p>
         <p><strong>Total Pagado:</strong> $<?php echo number_format($total, 2); ?></p>
         <p><strong>Método de Pago:</strong> <?php echo htmlspecialchars($metodo_pago); ?></p>
-        <p><strong>Dirección:</strong> <?php echo htmlspecialchars($direccion) . ", " . htmlspecialchars($localidad) . ", " . htmlspecialchars($provincia); ?></p>
+        <p><strong>Dirección:</strong> <?php echo htmlspecialchars($direccion) . ", " . htmlspecialchars($localidad) . ", " . htmlspecialchars($pais); ?></p>
     </section>
 
     <footer>
