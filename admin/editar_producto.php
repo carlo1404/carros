@@ -33,7 +33,6 @@ if (isset($_GET['id'])) {
     exit();
 }
 
-// Procesar los datos del formulario de edición
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
@@ -41,26 +40,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stock = $_POST['stock'];
     $imagen = $_FILES['imagen']['name'];
 
-    // Nombre de la imagen por defecto
+    // Imagen actual (por si no se sube nueva)
     $nombreImagen = $producto['imagen'];
 
-    // Verificar si hay una nueva imagen
-    if ($imagen) {
-        $nombreImagen = uniqid() . '-' . basename($imagen); // Nombre único para la imagen
-        $rutaImagen = '../img/' . $nombreImagen;
+    // Procesar nueva imagen si se sube
+    if (!empty($imagen)) {
+        $extension = pathinfo($imagen, PATHINFO_EXTENSION);
+        $nombreImagenNuevo = uniqid('img_') . '.' . $extension;
+        $rutaImagenNueva = '../img/' . $nombreImagenNuevo;
 
-        // Verificar si el archivo se carga correctamente
-        if ($_FILES['imagen']['error'] == 0) {
-            $imagenTipo = getimagesize($_FILES['imagen']['tmp_name']);
-            if ($imagenTipo !== false) {
-                // Mover el archivo a la carpeta img
-                if (move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaImagen)) {
-                    // Eliminar la imagen antigua si existe
-                    if ($producto['imagen'] !== $nombreImagen && file_exists('../img/' . $producto['imagen'])) {
+        if ($_FILES['imagen']['error'] === 0) {
+            $tipoImagen = getimagesize($_FILES['imagen']['tmp_name']);
+
+            if ($tipoImagen !== false) {
+                if (move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaImagenNueva)) {
+                    // Eliminar la imagen anterior si no es 'default.png' y si existe
+                    if ($producto['imagen'] !== 'default.png' && file_exists('../img/' . $producto['imagen'])) {
                         unlink('../img/' . $producto['imagen']);
                     }
+
+                    $nombreImagen = $nombreImagenNuevo; // Usar la nueva imagen
                 } else {
-                    echo "Error al subir la nueva imagen. Verifica el tamaño del archivo y las configuraciones del servidor.";
+                    echo "Error al mover la nueva imagen.";
                     exit();
                 }
             } else {
@@ -68,19 +69,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit();
             }
         } else {
-            echo "Error al cargar la imagen.";
+            echo "Error al subir la imagen.";
             exit();
         }
     }
 
-    // Actualizar los datos del producto en la base de datos
+    // Actualizar producto en la base de datos
     $sql = "UPDATE productos SET nombre = ?, descripcion = ?, precio = ?, stock = ?, imagen = ? WHERE id = ?";
     $stmt = $conexion->prepare($sql);
-    $stmt->bind_param('ssdiis', $nombre, $descripcion, $precio, $stock, $nombreImagen, $id);
+    $stmt->bind_param('ssdisi', $nombre, $descripcion, $precio, $stock, $nombreImagen, $id);
 
     if ($stmt->execute()) {
-        // Redirigir a la página de productos después de la actualización
-        header("Location: productos.php");
+        header("Location: productos.php?mensaje=actualizado");
         exit();
     } else {
         echo "Error al actualizar el producto: " . $stmt->error;

@@ -2,6 +2,12 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+include 'conexion.php';
+// Consulta para obtener los productos
+$query = "SELECT * FROM productos";
+$stmt = $pdo->prepare($query);
+$stmt->execute();
+$productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -52,97 +58,47 @@ if (session_status() == PHP_SESSION_NONE) {
     <h2 class="carousel__title">Autos más vendidos</h2>
 
     <!-- Sección de carros en oferta -->
-    <section class="vehiculos__seccion">
-        <form action="php/agregar_carrito.php" method="POST" class="vehiculo__card">
-            <div class="vehiculo__info">
-                <h3>BMW Serie X</h3>
-                <p><strong>Precio sugerido desde</strong></p>
-                <p>$ 120.000.000</p>
-                <p>Motor 2.0 Turbo, automático, 5 puertas</p>
-                <input type="hidden" name="id" value="1">
-                <input type="hidden" name="nombre" value="BMW Serie X">
-                <input type="hidden" name="precio" value="120000000">
-                <div class="agregado__contenedor">
-                    <button type="submit" class="boton__comprar">
-                        <img src="img/carrito-añadir.svg" alt="Comprar"> Agregar
-                    </button>
-                    <span class="mensaje-agregado"></span>
-                </div>
+<!-- Sección de carros en oferta -->
+<section class="vehiculos__seccion">
+<?php
+$mitad = ceil(count($productos) / 2);
+foreach($productos as $index => $producto):
+?>
+    <form action="php/agregar_carrito.php" method="POST" class="vehiculo__card">
+        <div class="vehiculo__info">
+            <h3><?= htmlspecialchars($producto['nombre']) ?></h3>
+            <p><strong>Precio sugerido desde</strong></p>
+            <p>$ <?= number_format($producto['precio'], 0, ',', '.') ?></p>
+            <p><?= htmlspecialchars($producto['descripcion']) ?></p>
+            <input type="hidden" name="id" value="<?= $producto['id'] ?>">
+            <input type="hidden" name="nombre" value="<?= htmlspecialchars($producto['nombre']) ?>">
+            <input type="hidden" name="precio" value="<?= $producto['precio'] ?>">
+            <div class="agregado__contenedor">
+                <button type="submit" class="boton__comprar">
+                    <img src="img/carrito-añadir.svg" alt="Comprar"> Agregar
+                </button>
+                <span class="mensaje-agregado"></span>
             </div>
-            <img class="vehiculo__imagen" src="img/bmw_PNG99543.png" alt="Vehículo">
-        </form>
-
-        <form action="php/agregar_carrito.php" method="POST" class="vehiculo__card">
-            <div class="vehiculo__info">
-                <h3>Chevrolet Spark GT</h3>
-                <p><strong>Precio sugerido desde</strong></p>
-                <p>$ 40.000.000</p>
-                <p>Económico, compacto, ideal ciudad</p>
-                <input type="hidden" name="id" value="2">
-                <input type="hidden" name="nombre" value="Chevrolet Spark GT">
-                <input type="hidden" name="precio" value="40000000">
-                <div class="agregado__contenedor">
-                    <button type="submit" class="boton__comprar">
-                        <img src="img/carrito-añadir.svg" alt="Comprar"> Agregar
-                    </button>
-                    <span class="mensaje-agregado"></span>
-                </div>
-            </div>
-            <img class="vehiculo__imagen" src="img/chevrolet.png" alt="Vehículo">
-        </form>
-    </section>
-
-    <!-- Video publicitario -->
-    <section class="video__seccion">
-        <h2 class="video__titulo">Descubre Más Sobre Nuestra Tecnología</h2>
-        <div class="video__contenedor">
-            <video autoplay muted loop playsinline poster="img/preview.jpg">
-                <source src="img/video-anuncio.mp4" type="video/mp4">
-                Tu navegador no soporta la etiqueta de video.
-            </video>
         </div>
-    </section>
+        <img class="vehiculo__imagen" src="img/<?= htmlspecialchars($producto['imagen']) ?>" alt="Vehículo">
+    </form>
 
-    <!-- Segunda sección de vehículos -->
-    <section class="vehiculos__seccion">
-        <form action="php/agregar_carrito.php" method="POST" class="vehiculo__card">
-            <div class="vehiculo__info">
-                <h3>Cadillac XT5</h3>
-                <p><strong>Precio sugerido desde</strong></p>
-                <p>$ 150.000.000</p>
-                <p>Lujo, espacio y tecnología</p>
-                <input type="hidden" name="id" value="3">
-                <input type="hidden" name="nombre" value="Cadillac XT5">
-                <input type="hidden" name="precio" value="150000000">
-                <div class="agregado__contenedor">
-                    <button type="submit" class="boton__comprar">
-                        <img src="img/carrito-añadir.svg" alt="Comprar"> Agregar
-                    </button>
-                    <span class="mensaje-agregado"></span>
-                </div>
+    <?php if ($index + 1 == $mitad): ?>
+        <!-- Video publicitario en la mitad de las cards -->
+        </section>
+        <section class="video__seccion">
+            <h2 class="video__titulo">Descubre Más Sobre Nuestra Tecnología</h2>
+            <div class="video__contenedor">
+                <video autoplay muted loop playsinline poster="img/preview.jpg">
+                    <source src="img/video-anuncio.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
             </div>
-            <img class="vehiculo__imagen" src="img/cadillac_PNG.png" alt="Vehículo">
-        </form>
-
-        <form action="php/agregar_carrito.php" method="POST" class="vehiculo__card">
-            <div class="vehiculo__info">
-                <h3>Lamborghini Aventador</h3>
-                <p><strong>Precio sugerido desde</strong></p>
-                <p>$ 1.500.000.000</p>
-                <p>Deportivo extremo, motor V12</p>
-                <input type="hidden" name="id" value="4">
-                <input type="hidden" name="nombre" value="Lamborghini Aventador">
-                <input type="hidden" name="precio" value="1500000000">
-                <div class="agregado__contenedor">
-                    <button type="submit" class="boton__comprar">
-                        <img src="img/carrito-añadir.svg" alt="Comprar"> Agregar
-                    </button>
-                    <span class="mensaje-agregado"></span>
-                </div>
-            </div>
-            <img class="vehiculo__imagen" src="img/lamborghini_.png" alt="Vehículo">
-        </form>
-    </section>
+        </section>
+        <section class="vehiculos__seccion">
+    <?php endif; ?>
+<?php endforeach; ?>
+</section>
 
 </main>
 
