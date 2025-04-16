@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-04-2025 a las 22:22:12
+-- Tiempo de generación: 16-04-2025 a las 23:24:55
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -26,10 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `categorias`
 --
-
-CREATE DATABASE carros;
-USE carros;
--- --------------------------------------------------------
 
 CREATE TABLE `categorias` (
   `id` int(255) NOT NULL,
@@ -68,7 +64,7 @@ CREATE TABLE `lineas_pedidos` (
 CREATE TABLE `pedidos` (
   `id` int(255) NOT NULL,
   `usuario_id` int(255) NOT NULL,
-  `pais` varchar(100) NOT NULL,
+  `pais` varchar(100) DEFAULT NULL,
   `localidad` varchar(100) NOT NULL,
   `direccion` varchar(255) NOT NULL,
   `coste` float(200,2) NOT NULL,
@@ -84,7 +80,8 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`id`, `usuario_id`, `pais`, `localidad`, `direccion`, `coste`, `estado`, `fecha`, `hora`, `metodo_pago`, `total`) VALUES
-(7, 7, 'colombia', 'pereria ', 'manzana11 pereira ', 150000000.00, 'pendiente', '2025-04-16', '22:16:57', 'Nequi', 99999999.99);
+(7, 7, 'colombia', 'pereria ', 'manzana11 pereira ', 150000000.00, 'pendiente', '2025-04-16', '22:16:57', 'Nequi', 99999999.99),
+(8, 7, 'Colombia ', 'pereria ', 'manzana 20 pereira', 120000000.00, 'pendiente', '2025-04-16', '23:24:27', 'Davivienda', 99999999.99);
 
 -- --------------------------------------------------------
 
@@ -140,7 +137,8 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `rol`, `imagen`, `telefono`, `reset_token`, `token_expira`) VALUES
 (6, 'sofia arango jaramillo ', 'sofia@admin.com', '$2y$10$zXiqDt4N0CarlaH3NDiNrOfba4e3iNzUXnCjx.XFYyVjdqnpyUigO', 'admin', '5888cd40-2ae2-11ee-ab60-d7d745a533c2.jpg', '3148723458', NULL, NULL),
 (7, 'Carlos Andres Reyes Grajales ', 'brunoreyes150@gmail.com', '$2y$10$0dp2eItjZh/oMeCVkeJ8A./v8hfDS2Z9GOHVwAixvEF6slrYAMwIu', 'usuario', 'Imagen de WhatsApp 2025-03-31 a las 22.21.13_b23c8576.jpg', '3108635728', 'df07774614bb61b5a00d1da81c5b8bd88ec26de1bfedf6d973f3a6fd6a4049b63d11daf502add8f4634722da957866a5c7de', '2025-04-15 19:16:11'),
-(8, 'Tralalero tralala', 'bombardirococodrilo14@gmail.com', '$2y$10$92CgFE1STxvVZfRGj.R6n.NymRoPrlmDpB0XEDtKACU4bHZiwdEte', 'usuario', 'Imagen de WhatsApp 2025-03-31 a las 22.21.13_b23c8576.jpg', '3245678193', NULL, NULL);
+(8, 'Tralalero tralala', 'bombardirococodrilo14@gmail.com', '$2y$10$92CgFE1STxvVZfRGj.R6n.NymRoPrlmDpB0XEDtKACU4bHZiwdEte', 'usuario', 'Imagen de WhatsApp 2025-03-31 a las 22.21.13_b23c8576.jpg', '3245678193', NULL, NULL),
+(9, 'Andres Reyes ', 'andres10@admin.com', '$2y$10$mFw26UvdYNrTzG9mBVN8YuuBFCybDOBIkZwJWjBGOk3rUEVxv5.XK', 'admin', NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -201,7 +199,7 @@ ALTER TABLE `lineas_pedidos`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -213,7 +211,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
