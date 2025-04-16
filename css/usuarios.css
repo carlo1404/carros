@@ -1,0 +1,157 @@
+:root {
+    --color-primary:  #007bff;
+    --color-secondary: #101010;
+  }  
+
+/* Estandarizo estilos */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.lista-usuarios {
+    max-width: 60rem;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 0.2rem solid var(--color-primary);
+    border-radius: 1rem;
+    padding: 3rem 4rem;
+}
+
+.lista-usuarios__titulo {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.lista-usuarios__buscador {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    background-color: transparent;
+    color: var(--color-primary);
+}.lista-usuarios__buscador:focus {
+    outline: none;
+    border: 0.1rem solid var(--color-primary);
+    border-radius: 0.5rem;
+}
+
+.lista-usuarios__lista {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-usuarios__item {
+    margin: 1rem 0;
+    padding: 1rem 1.4rem;
+}
+
+.lista-usuarios__link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.lista-usuarios__item:hover{
+    border: 1px solid var(--color-primary);
+    border-radius: 6px;
+}
+
+.lista-usuarios__acciones {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.link {
+    display: inline-block;
+    margin: 1rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border: 0.1rem solid var(--color-primary);
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    font-weight: 500;
+}
+
+/* .lista-usuarios__link small {
+    font-size: 1.2rem;
+    color: #aaa;
+    display: block;
+    margin-top: 0.3rem;
+} */
+
+
+/* Pagina ver-usuario */
+.ver-usuario {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 0.2rem solid var(--color-primary);
+    border-radius: 1rem;
+    padding: 3rem 4rem;
+    max-width: 50rem;
+    width: 100%;
+    text-align: left;
+}
+
+.ver-usuario__titulo {
+    font-size: 2.8rem;
+    margin-bottom: 6rem;
+    text-align: center;
+}
+
+.ver-usuario__info p {
+    margin: 2.6rem 0;
+    font-size: 1.6rem;
+}
+
+.ver-usuario__pedido {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.ver-usuario__acciones {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.ver-usuario__link {
+    display: inline-block;
+    margin: 0.5rem 1rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 1rem 2rem;
+    border: 0.1rem solid var(--color-primary);
+    border-radius: 0.5rem;
+}
+
+.ver-usuario__link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    font-weight: 500;
+}
