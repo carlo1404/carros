@@ -91,7 +91,7 @@ body {
     <div class="admin-menu">
         <a href="productos.php" class="admin-card">🛠️ Gestión de productos</a>
         <a href="categorias.php" class="admin-card">📂 Gestión de categorías</a>
-        <a href="usuarios.php" class="admin-card">👥 Gestión de usuarios</a>
+        <a href="Mis-pedidos.php" class="admin-card">👥 Mis pedidos</a>
         <a href="nuevo-admin.php" class="admin-card">➕ Agregar administrador</a>
     </div>
 </main>
