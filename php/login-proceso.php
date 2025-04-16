@@ -1,4 +1,5 @@
 <?php
+session_set_cookie_params(0, '/'); 
 session_start();
 require_once '../conexion.php'; // Ajusta la ruta si es necesario
 
@@ -18,15 +19,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verificar la contraseña cifrada utilizando password_verify
         if (password_verify($contrasenaIngresada, $usuario['password'])) {
-            // Login exitoso
+            // Login exitoso: guardar datos en la sesión
             $_SESSION['usuario'] = $usuario;
-
-            // Verificar si el email contiene 'admin@' (para identificar como admin)
-            if (strpos($usuario['email'], 'admin@') !== false) {
-                // Redirigir al área de administración si el correo contiene 'admin@'
-                header("Location: ../admin_dashboard.php");
+            // Asignar explícitamente el ID y el rol
+            $_SESSION['usuario_id'] = $usuario['id'];
+            $_SESSION['usuario_rol'] = $usuario['rol'];
+            
+            // Redirigir según el rol
+            if ($_SESSION['usuario_rol'] === 'admin') {
+                header("Location: ..//admin/productos.php");
             } else {
-                // Si no es admin, redirigir a la página principal
                 header("Location: ../index.php");
             }
             exit();
