@@ -2,7 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.-- Tiempo de generación: 16-04-2025 a las 23:49:24
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 17-04-2025 a las 00:31:02
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -11,11 +12,6 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/
-
-CREATE DATABASE `carros` ;
-USE `carros` ;
--- --------------------------------------------------------
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -41,10 +37,11 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `nombre`) VALUES
-(1, 'Manga corta'),
-(2, 'Tirantes'),
-(3, 'Manga larga'),
-(4, 'Sudaderas');
+(1, 'TIPO DE VEHÍCULO'),
+(2, 'MARCA AUTOMOTRIZ'),
+(3, 'LÍNEA DE VEHÍCULO'),
+(4, 'AGENDA TU CITA'),
+(6, 'BMW');
 
 -- --------------------------------------------------------
 
@@ -86,7 +83,9 @@ CREATE TABLE `pedidos` (
 INSERT INTO `pedidos` (`id`, `usuario_id`, `pais`, `localidad`, `direccion`, `coste`, `estado`, `fecha`, `hora`, `metodo_pago`, `total`) VALUES
 (7, 7, 'colombia', 'pereria ', 'manzana11 pereira ', 150000000.00, 'pendiente', '2025-04-16', '22:16:57', 'Nequi', 99999999.99),
 (8, 7, 'Colombia ', 'pereria ', 'manzana 20 pereira', 120000000.00, 'pendiente', '2025-04-16', '23:24:27', 'Davivienda', 99999999.99),
-(9, 7, 'Colombia ', 'pereria ', 'manzana 20 pereira', 420000000.00, 'pendiente', '2025-04-16', '23:47:35', 'PayPal', 99999999.99);
+(9, 7, 'Colombia ', 'pereria ', 'manzana 20 pereira', 420000000.00, 'pendiente', '2025-04-16', '23:47:35', 'PayPal', 99999999.99),
+(10, 7, 'brazil', 'sao paulo', 'alcolirykoz ', 40000000.00, 'pendiente', '2025-04-16', '23:53:03', 'Efectivo', 40000000.00),
+(11, 7, 'china', 'cali', 'el ocho 12', 420000000.00, 'pendiente', '2025-04-17', '00:13:01', 'Bancolombia', 99999999.99);
 
 -- --------------------------------------------------------
 
@@ -192,7 +191,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `lineas_pedidos`
@@ -204,14 +203,7 @@ ALTER TABLE `lineas_pedidos`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
- NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
