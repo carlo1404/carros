@@ -168,7 +168,7 @@ $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($categoria['nombre']) ?></td>
                 <td>
                     <a class="btn-editar" href="editar_categoria.php?id=<?= $categoria['id'] ?>">Editar</a>
-                    <a class="btn-eliminar" href="categorias.php?eliminar=<?= $categoria['id'] ?>" onclick="return confirm('¿Seguro que deseas eliminar esta categoría?')">Eliminar</a>
+                    <a class="btn-eliminar" href="categorias.php?eliminar=<?= $categoria['id'] ?>" onclick="return confirm('¿Estás seguro de que deseas eliminar esta categoría?');">Eliminar</a>
                 </td>
             </tr>
             <?php endforeach; ?>
