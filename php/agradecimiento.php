@@ -1,78 +1,98 @@
 <?php
-// Iniciar la sesión para poder acceder a las variables de sesión
 session_start();
+require_once('../conexion.php');
 
-// Vaciar el carrito y reiniciar el contador
-unset($_SESSION['carrito']);
-$_SESSION['contador_carrito'] = 0; // Reiniciar contador del carrito
+// Verifica si el usuario está autenticado
+if (!isset($_SESSION['usuario'])) {
+    echo "<p class='alerta__error'>Debes iniciar sesión para realizar una compra.</p>";
+    echo "<a href='login.php' class='volver'>Iniciar sesión</a>";
+    exit();
+}
+
+$usuario = $_SESSION['usuario'];
+$usuario_id = $usuario['id'];
+
+// Validar si llegaron los datos del formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $provincia = $_POST['provincia'] ?? '';
+    $localidad = $_POST['localidad'] ?? '';
+    $direccion = $_POST['direccion'] ?? '';
+    $metodo_pago = $_POST['metodo_pago'] ?? '';
+
+    // Validar carrito
+    if (!isset($_SESSION['carrito']) || count($_SESSION['carrito']) === 0) {
+        echo "<p class='alerta'>No hay productos en el carrito.</p>";
+        exit();
+    }
+
+    // Calcular total
+    $total = 0;
+    foreach ($_SESSION['carrito'] as $producto) {
+        $cantidad = isset($producto['cantidad']) ? $producto['cantidad'] : 1;
+        $precio = isset($producto['precio']) ? $producto['precio'] : 0;
+        $total += $precio * $cantidad;
+    }
+
+    $estado = 'pendiente'; // puedes cambiar esto según el flujo
+    $fecha = date('Y-m-d');
+    $hora = date('H:i:s');
+
+    // Insertar pedido en la base de datos
+    $stmt = $pdo->prepare("INSERT INTO pedidos (usuario_id, provincia, localidad, direccion, coste, estado, fecha, hora, metodo_pago, total) 
+                           VALUES (:usuario_id, :provincia, :localidad, :direccion, :coste, :estado, :fecha, :hora, :metodo_pago, :total)");
+
+    $stmt->execute([
+        ':usuario_id' => $usuario_id,
+        ':provincia' => $provincia,
+        ':localidad' => $localidad,
+        ':direccion' => $direccion,
+        ':coste' => $total,
+        ':estado' => $estado,
+        ':fecha' => $fecha,
+        ':hora' => $hora,
+        ':metodo_pago' => $metodo_pago,
+        ':total' => $total
+    ]);
+
+    // Limpiar carrito
+    unset($_SESSION['carrito']);
+
+    // Mensaje de confirmación
+    $mensaje = "¡Gracias por tu compra, $usuario[nombre]! Tu pedido ha sido registrado con éxito.";
+} else {
+    $mensaje = "No se han enviado los datos del formulario.";
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gracias por tu compra</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
-<style>
-    body {
-        font-family: 'Outfit', sans-serif;
-        background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-        color: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        padding: 2rem;
-        text-align: center;
-    }
-
-    .mensaje {
-        background-color: #1f1f1f;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 0 25px rgba(0, 255, 204, 0.2);
-        max-width: 600px;
-        width: 100%;
-    }
-
-    .mensaje h1 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: #00ffc3;
-    }
-
-    .mensaje p {
-        font-size: 1.1rem;
-        color: #dcdcdc;
-    }
-
-    .btn-regresar {
-        margin-top: 2rem;
-        display: inline-block;
-        background-color: #00ffc3;
-        color: #000;
-        padding: 0.75rem 1.5rem;
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .btn-regresar:hover {
-        background-color: #00c2a1;
-    }
-</style>
+    <title>¡Gracias por tu compra!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/factura.css">
 </head>
 <body>
-    <div class="mensaje">
-        <h1>¡Gracias por tu compra!</h1>
-        <p>Tu pedido ha sido procesado exitosamente. 🛒</p>
-        <p>Recibirás una <strong>factura electrónica</strong> en tu correo electrónico en unos minutos.</p>
-        <a href="../index.php" class="btn-regresar">Volver al Inicio</a>
-        <?php
-        $correo = $_POST['email'] ?? 'tu correo electrónico';
-        ?>
-    <p>La factura será enviada a: <strong><?= htmlspecialchars($correo) ?></strong></p>
-    </div>
+
+<div class="container">
+    <header>
+        <h1>🎉 ¡Compra Exitosa!</h1>
+    </header>
+
+    <section class="card">
+        <h2>🧾 Detalles del Pedido</h2>
+        <p><?php echo $mensaje; ?></p>
+        <p><strong>Fecha:</strong> <?php echo $fecha; ?></p>
+        <p><strong>Hora:</strong> <?php echo $hora; ?></p>
+        <p><strong>Total Pagado:</strong> $<?php echo number_format($total, 2); ?></p>
+        <p><strong>Método de Pago:</strong> <?php echo htmlspecialchars($metodo_pago); ?></p>
+        <p><strong>Dirección:</strong> <?php echo htmlspecialchars($direccion) . ", " . htmlspecialchars($localidad) . ", " . htmlspecialchars($provincia); ?></p>
+    </section>
+
+    <footer>
+        <a href="../index.php" class="volver">🏠 Volver al inicio</a>
+    </footer>
+</div>
+
 </body>
 </html>

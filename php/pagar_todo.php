@@ -11,10 +11,8 @@ if (!isset($_SESSION['usuario'])) {
 
 // Obtener los datos del usuario desde la sesión
 $usuario = $_SESSION['usuario'];
-
-// Verificar si el correo está disponible en la sesión
 $nombre = isset($usuario['nombre']) ? $usuario['nombre'] : '';
-$correo = isset($usuario['email']) ? $usuario['email'] : 'Correo no disponible';  // Ahora sí obtenemos el correo
+$correo = isset($usuario['email']) ? $usuario['email'] : 'Correo no disponible';
 $telefono = isset($usuario['telefono']) ? $usuario['telefono'] : 'No disponible';
 
 // Si no hay productos en el carrito
@@ -42,6 +40,7 @@ foreach ($_SESSION['carrito'] as $producto) {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -70,6 +69,13 @@ foreach ($_SESSION['carrito'] as $producto) {
     <form action="agradecimiento.php" method="post">
         <section class="card">
             <h2>📦 Dirección de Envío</h2>
+
+            <label for="provincia">Provincia:</label>
+            <input type="text" name="provincia" id="provincia" required>
+
+            <label for="localidad">Ciudad o Localidad:</label>
+            <input type="text" name="localidad" id="localidad" required>
+
             <label for="direccion">Dirección:</label>
             <input type="text" name="direccion" id="direccion" required>
         </section>

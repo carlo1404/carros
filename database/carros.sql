@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-04-2025 a las 21:08:57
+-- Tiempo de generación: 16-04-2025 a las 22:22:12
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -19,9 +19,6 @@ SET time_zone = "+00:00";
 
 --
 -- Base de datos: `carros`
-CREATE DATABASE carros;
-USE carros;
-
 --
 
 -- --------------------------------------------------------
@@ -73,8 +70,17 @@ CREATE TABLE `pedidos` (
   `coste` float(200,2) NOT NULL,
   `estado` varchar(20) NOT NULL,
   `fecha` date DEFAULT NULL,
-  `hora` time DEFAULT NULL
+  `hora` time DEFAULT NULL,
+  `metodo_pago` varchar(255) NOT NULL,
+  `total` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`id`, `usuario_id`, `provincia`, `localidad`, `direccion`, `coste`, `estado`, `fecha`, `hora`, `metodo_pago`, `total`) VALUES
+(7, 7, 'colombia', 'pereria ', 'manzana11 pereira ', 150000000.00, 'pendiente', '2025-04-16', '22:16:57', 'Nequi', 99999999.99);
 
 -- --------------------------------------------------------
 
@@ -102,7 +108,8 @@ INSERT INTO `productos` (`id`, `categoria_id`, `nombre`, `descripcion`, `precio`
 (1, 1, 'BMW Serie X', 'Motor 2.0 Turbo, automático, 5 puertas', 120000000.00, 10, NULL, '2025-04-13', 'bmw_PNG99543.png'),
 (2, 1, 'Chevrolet Spark GT', 'Económico, compacto, ideal ciudad', 40000000.00, 15, NULL, '2025-04-13', 'chevrolet.png'),
 (3, 1, 'Cadillac XT5', 'Lujo, espacio y tecnología', 150000000.00, 8, NULL, '2025-04-13', 'cadillac_PNG.png'),
-(4, 1, 'Lamborghini Aventador', 'Deportivo extremo, motor V12', 1500000000.00, 5, NULL, '2025-04-13', 'lamborghini_.png');
+(4, 1, 'Lamborghini Aventador', 'Deportivo extremo, motor V12', 1500000000.00, 5, NULL, '2025-04-13', 'lamborghini_.png'),
+(12, 1, 'ford-raptor', 'ford modelo 2024 increíble camioneta 4x4', 420000000.00, 4, '', '2025-04-16', 'pngimg.com - ford_PNG102947.png');
 
 -- --------------------------------------------------------
 
@@ -184,19 +191,19 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `lineas_pedidos`
 --
 ALTER TABLE `lineas_pedidos`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

@@ -35,7 +35,7 @@ include 'include/header.php';
                 <textarea class="product__info-textarea" readonly><?php echo htmlspecialchars($descripcion); ?></textarea>
             </div>
             <div class="product__actions">
-                <a href="detalles_compra.php"><button class="product__button product__button--primary">COMPRAR</button></a>
+                <a href="pagar_todo.php"><button class="product__button product__button--primary">COMPRAR</button></a>
                 <button class="product__button product__button--secondary">CARRITO</button>
             </div>
         </div>
