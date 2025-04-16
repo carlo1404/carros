@@ -23,13 +23,19 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <main class="main__content">
     <div class="carousel">
-        <div class="carousel__menu">
-            <a href="#">TIPO DE VEHÍCULO</a>
-            <a href="#">MARCA AUTOMOTRIZ</a>
-            <a href="#">LÍNEA DE VEHÍCULO</a>
-            <a href="#">AGENDA TU CITA</a>
-        </div>
+    <div class="carousel__menu">
+    <?php
+    // Consulta para obtener las categorías
+    $categoriasQuery = "SELECT * FROM categorias";
+    $categoriasStmt = $pdo->prepare($categoriasQuery);
+    $categoriasStmt->execute();
+    $categorias = $categoriasStmt->fetchAll(PDO::FETCH_ASSOC);
 
+    foreach ($categorias as $categoria):
+    ?>
+        <a href="#"><?= htmlspecialchars($categoria['nombre']) ?></a>
+    <?php endforeach; ?>
+</div>
         <div class="carousel__track-container">
             <ul class="carousel__track">
                 <li class="carousel__slide current-slide">
