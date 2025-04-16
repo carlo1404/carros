@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 
 --
 -- Base de datos: `carros`
+CREATE DATABASE carros;
+USE carros;
 --
 
 -- --------------------------------------------------------
@@ -42,19 +44,6 @@ INSERT INTO `categorias` (`id`, `nombre`) VALUES
 (3, 'LÍNEA DE VEHÍCULO'),
 (4, 'AGENDA TU CITA'),
 (6, 'BMW');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `lineas_pedidos`
---
-
-CREATE TABLE `lineas_pedidos` (
-  `id` int(255) NOT NULL,
-  `pedido_id` int(255) NOT NULL,
-  `producto_id` int(255) NOT NULL,
-  `unidades` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
 

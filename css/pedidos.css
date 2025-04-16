@@ -1,0 +1,149 @@
+:root {
+    --color-primary: #007bff;
+    --color-secondary: #101010;
+    --color-text: #ffffff;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+}
+
+.listar-pedidos {
+    max-width: 70rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 0.2rem solid var(--color-primary);
+    border-radius: 1rem;
+    padding: 3rem 4rem;
+    width: 100%;
+}
+
+.listar-pedidos__titulo {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--color-primary);
+}
+
+.listar-pedidos__lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.listar-pedidos__item {
+    margin-bottom: 1.6rem;
+    padding: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-left: 0.4rem solid var(--color-primary);
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.listar-pedidos__item:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.listar-pedidos__link {
+    color: var(--color-text);
+    text-decoration: none;
+    display: block;
+}
+
+.btn-link {
+    display: inline-block;
+    margin: 1rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border: 0.1rem solid var(--color-primary);
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1.5rem;
+}
+
+.btn-link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    font-weight: 500;
+}
+
+.listar-pedidos__acciones {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* Ver pedido */
+.ver-pedido {
+    max-width: 60rem;
+    width: 100%;
+    background-color: var(--color-card);
+    border: 0.2rem solid var(--color-primary);
+    border-radius: 1rem;
+    padding: 3rem;
+}
+
+.ver-pedido__titulo {
+    font-size: 2.6rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.ver-pedido__subtitulo {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.ver-pedido__info {
+    margin-bottom: 2rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    line-height: 1.8;
+}
+
+.ver-pedido__acciones {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.ver-pedido__select {
+    padding: 1rem;
+    font-size: 1.6rem;
+    border: 0.1rem solid var(--color-primary);
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #1a1a1a;
+    color: var(--color-text);
+}
+
+.mensaje-exito {
+    background-color: var(--verde-exito, #d4edda);
+    color: var(--verde-texto, #155724);
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid #c3e6cb;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+
