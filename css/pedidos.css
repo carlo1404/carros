@@ -25,6 +25,25 @@ body {
     min-height: 100vh;
 }
 
+.listar-pedidos__filtro {
+    margin-bottom: 2rem;
+}
+
+.listar-pedidos__filtro label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    color: var(--color-primary);
+}
+
+.listar-pedidos__filtro select {
+    padding: 0.5rem;
+    font-size: 1.4rem;
+    color: var(--color-text);
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-primary);
+    border-radius: 0.5rem;
+}
+
 .listar-pedidos {
     max-width: 70rem;
     background-color: rgba(255, 255, 255, 0.03);
@@ -86,7 +105,7 @@ body {
 
 .listar-pedidos__acciones {
     text-align: center;
-    margin-top: 3rem;
+    margin-bottom: 4rem;
 }
 
 /* Ver pedido */
