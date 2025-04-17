@@ -131,7 +131,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="" method="POST" enctype="multipart/form-data">
           <label for="categoria_id">Categoría:</label>
           <select name="categoria_id" required>
-            <option value="1">Carros</option>
+            <?php
+            // Consulta para obtener todas las categorías
+            $sql = "SELECT * FROM categorias";
+            $result = $pdo->query($sql);
+
+            // Verifica si hay categorías en la base de datos
+            if ($result->rowCount() > 0) {
+                // Genera una opción para cada categoría
+                while ($categoria = $result->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<option value='" . $categoria['id'] . "'>" . $categoria['nombre'] . "</option>";
+                }
+            } else {
+                echo "<option value=''>No hay categorías disponibles</option>";
+            }
+            ?>
           </select>
           
           <label for="nombre">Nombre:</label>
