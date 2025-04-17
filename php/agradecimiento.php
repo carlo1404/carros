@@ -14,7 +14,7 @@ $usuario_id = $usuario['id'];
 
 // Validar si llegaron los datos del formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $pais = $_POST['pais'] ?? '';
+    $pais = $_POST['pais'] ?? '';  // Ahora se usa 'pais'
     $localidad = $_POST['localidad'] ?? '';
     $direccion = $_POST['direccion'] ?? '';
     $metodo_pago = $_POST['metodo_pago'] ?? '';
@@ -25,17 +25,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Calcular total
+    // Calcular total y coste
     $total = 0;
     foreach ($_SESSION['carrito'] as $producto) {
-        $cantidad = isset($producto['cantidad']) ? $producto['cantidad'] : 1;
         $precio = isset($producto['precio']) ? $producto['precio'] : 0;
+        $cantidad = isset($producto['cantidad']) ? $producto['cantidad'] : 1;
         $total += $precio * $cantidad;
     }
 
-    $estado = 'pendiente'; // puedes cambiar esto según el flujo
+    $estado = 'pendiente';
     $fecha = date('Y-m-d');
     $hora = date('H:i:s');
+    $coste = $total; // El mismo total será el coste
 
     // Insertar pedido en la base de datos
     $stmt = $pdo->prepare("INSERT INTO pedidos (usuario_id, pais, localidad, direccion, coste, estado, fecha, hora, metodo_pago, total) 
@@ -43,10 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt->execute([
         ':usuario_id' => $usuario_id,
-        ':pais' => $pais,
+        ':pais' => $pais,  // Ahora se usa el campo "pais"
         ':localidad' => $localidad,
         ':direccion' => $direccion,
-        ':coste' => $total,
+        ':coste' => $coste,
         ':estado' => $estado,
         ':fecha' => $fecha,
         ':hora' => $hora,
@@ -58,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     unset($_SESSION['carrito']);
 
     // Mensaje de confirmación
-    $mensaje = "¡Gracias por tu compra, $usuario[nombre]! Tu pedido ha sido registrado con éxito.";
+    $mensaje = "¡Gracias por tu compra, {$usuario['nombre']}! Tu pedido ha sido registrado con éxito.";
 } else {
     $mensaje = "No se han enviado los datos del formulario.";
 }

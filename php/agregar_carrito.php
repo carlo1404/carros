@@ -14,7 +14,8 @@ if (isset($_POST['id'], $_POST['nombre'], $_POST['precio'])) {
     $producto = [
         'id' => $_POST['id'],
         'nombre' => $_POST['nombre'],
-        'precio' => $_POST['precio']
+        'precio' => floatval(str_replace(',', '.', $_POST['precio']))
+        
     ];
 
     // Verificar si el producto ya está en el carrito
@@ -55,3 +56,5 @@ echo json_encode([
 ]);
 exit;
 ?>
+
+

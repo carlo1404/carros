@@ -57,7 +57,6 @@ CREATE TABLE `pedidos` (
   `pais` varchar(100) DEFAULT NULL,
   `localidad` varchar(100) NOT NULL,
   `direccion` varchar(255) NOT NULL,
-  `coste` float(200,2) NOT NULL,
   `estado` varchar(20) NOT NULL,
   `fecha` date DEFAULT NULL,
   `hora` time DEFAULT NULL,
