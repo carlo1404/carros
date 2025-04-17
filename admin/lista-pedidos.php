@@ -30,6 +30,10 @@ $result = $conexion->query($sql);
 </head>
 <body>
     <section class="listar-pedidos">
+        <div class="listar-pedidos__acciones">
+            <a href="admin-index.php" class="btn-link">← Volver al panel de administración</a>
+            <a href="../index.php" class="btn-link">← Volver al inicio</a>
+        </div>
         <h2 class="listar-pedidos__titulo">Lista de Pedidos</h2>
 
         <!-- Formulario de filtro -->
@@ -66,10 +70,6 @@ $result = $conexion->query($sql);
             <?php endif; ?>
         </ul>
 
-        <div class="listar-pedidos__acciones">
-            <a href="admin-index.php" class="btn-link">← Volver al panel de administración</a>
-            <a href="../index.php" class="btn-link">← Volver al inicio</a>
-        </div>
     </section>
 </body>
 </html>

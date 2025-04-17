@@ -15,6 +15,11 @@ $result = $conexion->query("SELECT * FROM usuarios");
 </head>
 <body>
     <section class="lista-usuarios">
+    <div class="lista-usuarios__acciones">
+            <a href="admin-index.php" class="link">← Volver al panel de administración</a>
+            <a href="../index.php" class="link">← Volver al inicio</a>
+        </div>
+        
         <h2 class="lista-usuarios__titulo">Usuarios registrados</h2>
 
         <input type="text" id="buscador" class="lista-usuarios__buscador" placeholder="Buscar por nombre, correo o teléfono...">
@@ -30,10 +35,6 @@ $result = $conexion->query("SELECT * FROM usuarios");
             <?php endwhile; ?>
         </ul>
 
-        <div class="lista-usuarios__acciones">
-            <a href="admin-index.php" class="link">← Volver al panel de administración</a>
-            <a href="../index.php" class="link">← Volver al inicio</a>
-        </div>
     </section>
 
     <script>
