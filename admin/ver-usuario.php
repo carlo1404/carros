@@ -29,7 +29,7 @@ $pedido = $conexion->query("SELECT * FROM pedidos WHERE usuario_id = $id LIMIT 1
 
         <div class="ver-usuario__pedido">
             <?php if ($pedido): ?>
-                <a href="ver_pedido.php?id=<?php echo $pedido['id']; ?>" class="ver-usuario__link">Ver pedido realizado</a>
+                <a href="detalle-pedido.php?id=<?php echo $pedido['id']; ?>" class="ver-usuario__link">Ver pedido realizado</a>
             <?php else: ?>
                 <p><em>Este usuario no ha realizado pedidos.</em></p>
             <?php endif; ?>

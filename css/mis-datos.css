@@ -77,7 +77,7 @@ nav,a{
     text-decoration: none;
     color: #00b8d4;
     font-size: 16px;
-    gap: 12px;/* Espacio entre el formulario y la navegación */
+    gap: 2rem;/* Espacio entre el formulario y la navegación */
 }
 nav,a:hover{
     color: #bdbdbd;/* Espacio entre el formulario y la navegación */

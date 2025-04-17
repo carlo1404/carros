@@ -84,6 +84,7 @@ $stmt->close();
         <h1>Mis Datos</h1>
         <nav>
             <a href="../index.php">Inicio</a>
+            <a href="mis-pedidos.php">Mis pedidos</a>
         </nav>
     </header>
 
