@@ -49,8 +49,10 @@ $pedido = $result->fetch_assoc();
         <div class="listar-pedidos__detalle">
             <p><strong>Estado:</strong> <?= htmlspecialchars($pedido['estado']) ?></p>
             <p><strong>Fecha:</strong> <?= htmlspecialchars($pedido['fecha']) ?></p>
+            <p><strong>Dirección:</strong> <?= htmlspecialchars($pedido['direccion']) ?>, <?= htmlspecialchars($pedido['localidad']) ?>, <?= htmlspecialchars($pedido['pais']) ?></p>
+            <p><strong>Cantidad total de productos:</strong> <?= intval($pedido['cantidad']) ?></p>
+            <p><strong>Método de pago:</strong> <?= htmlspecialchars($pedido['metodo_pago']) ?></p>
             <p><strong>Total:</strong> $<?= number_format($pedido['coste'], 2) ?></p>
-            <!-- Puedes agregar más campos si los tienes, como dirección, productos, etc. -->
         </div>
     </section>
 </body>

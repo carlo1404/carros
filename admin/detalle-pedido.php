@@ -41,6 +41,7 @@ $pedido = $resultado->fetch_assoc();
             <p><strong>Fecha:</strong> <?= htmlspecialchars($pedido['fecha']) ?> <?= htmlspecialchars($pedido['hora']) ?></p>
             <p><strong>Dirección:</strong> <?= htmlspecialchars($pedido['direccion']) ?>, <?= htmlspecialchars($pedido['localidad']) ?>, <?= htmlspecialchars($pedido['pais']) ?></p>
             <p><strong>Método de pago:</strong> <?= htmlspecialchars($pedido['metodo_pago']) ?></p>
+            <p><strong>Cantidad total de productos:</strong> <?= intval($pedido['cantidad']) ?></p>
             <p><strong>Total:</strong> $<?= number_format($pedido['coste'], 2) ?></p>
         </div>
 

@@ -1,18 +1,21 @@
 <?php
 require_once '../conexion.php';
 
-$estado_filtro = isset($_GET['estado']) ? $_GET['estado'] : '';
-
+// Estados válidos
 $estados_permitidos = ['pendiente', 'preparando', 'enviado', 'entregado'];
 
-// Base SQL
+// Obtener filtro si se envió
+$estado_filtro = isset($_GET['estado']) ? $_GET['estado'] : '';
+
+// Consulta base
 $sql = "SELECT pedidos.*, usuarios.nombre 
         FROM pedidos 
         INNER JOIN usuarios ON pedidos.usuario_id = usuarios.id";
 
-// Si se ha seleccionado un estado válido, añadimos el filtro
+// Filtro por estado si es válido
 if ($estado_filtro && in_array($estado_filtro, $estados_permitidos)) {
-    $sql .= " WHERE pedidos.estado = '" . $conexion->real_escape_string($estado_filtro) . "'";
+    $estado_seguro = $conexion->real_escape_string($estado_filtro);
+    $sql .= " WHERE pedidos.estado = '$estado_seguro'";
 }
 
 $sql .= " ORDER BY pedidos.fecha DESC";
@@ -30,13 +33,15 @@ $result = $conexion->query($sql);
 </head>
 <body>
     <section class="listar-pedidos">
+
         <div class="listar-pedidos__acciones">
-            <a href="admin-index.php" class="btn-link">← Volver al panel de administración</a>
-            <a href="../index.php" class="btn-link">← Volver al inicio</a>
+            <a href="admin-index.php" class="btn-link">← Panel de administración</a>
+            <a href="../index.php" class="btn-link">← Inicio</a>
         </div>
+
         <h2 class="listar-pedidos__titulo">Lista de Pedidos</h2>
 
-        <!-- Formulario de filtro -->
+        <!-- Filtro por estado -->
         <form method="GET" class="listar-pedidos__filtro">
             <label for="estado">Filtrar por estado:</label>
             <select name="estado" id="estado" onchange="this.form.submit()">
@@ -52,20 +57,22 @@ $result = $conexion->query($sql);
         <!-- Lista de pedidos -->
         <ul class="listar-pedidos__lista">
             <?php if ($result->num_rows > 0): ?>
-                <?php while ($row = $result->fetch_assoc()): ?>
+                <?php while ($pedido = $result->fetch_assoc()): ?>
                     <li class="listar-pedidos__item">
-                        <a href="detalle-pedido.php?id=<?= $row['id']; ?>" class="listar-pedidos__link">
-                            <strong>Pedido #<?= $row['id']; ?></strong><br>
-                            <?= htmlspecialchars($row['nombre']) ?> - 
-                            <?= htmlspecialchars($row['estado']) ?> - 
-                            <?= htmlspecialchars($row['fecha']) ?> - 
-                            $<?= number_format($row['coste'], 2) ?>
+                        <a href="detalle-pedido.php?id=<?= $pedido['id']; ?>" class="listar-pedidos__link">
+                            <strong>Pedido #<?= $pedido['id']; ?></strong><br>
+                            <?= htmlspecialchars($pedido['nombre']) ?> - 
+                            <?= htmlspecialchars($pedido['estado']) ?> - 
+                            <?= htmlspecialchars($pedido['fecha']) ?> - 
+                            $<?= number_format($pedido['coste'], 2) ?>
                         </a>
                     </li>
                 <?php endwhile; ?>
             <?php else: ?>
                 <li class="listar-pedidos__item">
-                    <p class="listar-pedidos__link">No hay pedidos registrados<?= $estado_filtro ? " con estado '$estado_filtro'" : '' ?>.</p>
+                    <p class="listar-pedidos__link">
+                        No hay pedidos registrados<?= $estado_filtro ? " con estado '<strong>$estado_filtro</strong>'" : '' ?>.
+                    </p>
                 </li>
             <?php endif; ?>
         </ul>

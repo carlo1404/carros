@@ -70,6 +70,7 @@ $resultado = $stmt->get_result();
                             <?= htmlspecialchars($pedido['estado']) ?> -
                             <?= htmlspecialchars($pedido['fecha']) ?> -
                             $<?= number_format($pedido['coste'], 2) ?>
+                            $<?= number_format($pedido['cantidad']) ?>
                         </a>
                     </li>
                 <?php endwhile; ?>
