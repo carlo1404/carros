@@ -1,6 +1,17 @@
 <?php
 require_once '../conexion.php';
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../php/login.php");
+    exit();
+}
 
+// Solo permitir acceso a administradores
+if ($_SESSION['usuario']['rol'] !== 'admin') {
+    // Puedes redirigirlo a otra página, mostrar error o simplemente salir
+    echo "Acceso denegado. No tienes permisos para ver esta página.";
+    exit();
+}
 // Estados válidos
 $estados_permitidos = ['pendiente', 'preparando', 'enviado', 'entregado'];
 

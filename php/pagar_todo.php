@@ -157,22 +157,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="direccion">Dirección:</label>
             <input type="text" name="direccion" id="direccion" required>
         </section>
-
         <section class="card">
-            <h2>🛍 Productos</h2>
-            <ul class="productos-lista">
-                <?php foreach ($productos as $prod): ?>
-                <li>
-                    <span class="nombre"><?php echo htmlspecialchars($prod['nombre']); ?></span>
-                    <span class="precio">$<?php echo number_format($prod['precio'], 2, ',', '.'); ?></span>
-                    <span>
-                        <input type="number" name="cantidad[<?php echo $prod['id']; ?>]" value="<?php echo $prod['cantidad']; ?>" min="1" class="cantidad">
-                    </span>
-                </li>
-                <?php endforeach; ?>
-            </ul>
-            <div class="total" id="total">Total: $<?php echo number_format($total_inicial, 2, ',', '.'); ?></div>
-        </section>
+    <h2>🛍 Productos</h2>
+    <ul class="productos-lista">
+        <?php 
+        // Consulta para obtener el stock de los productos
+        foreach ($productos as $prod): 
+            // Obtener el stock del producto
+            $sql = "SELECT stock FROM productos WHERE id = ?";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$prod['id']]);
+            $producto = $stmt->fetch(PDO::FETCH_ASSOC);
+            $stock = $producto['stock'];
+        ?>
+        <li>
+            <span class="nombre"><?php echo htmlspecialchars($prod['nombre']); ?></span>
+            <span class="precio">$<?php echo number_format($prod['precio'], 2, ',', '.'); ?></span>
+            <span>
+                <input 
+                    type="number" 
+                    name="cantidad[<?php echo $prod['id']; ?>]" 
+                    value="<?php echo $prod['cantidad']; ?>" 
+                    min="1" 
+                    max="<?php echo $stock; ?>" 
+                    class="cantidad"
+                >
+                <span>Stock disponible: <?php echo $stock; ?></span>
+            </span>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+    <div class="total" id="total">Total: $<?php echo number_format($total_inicial, 2, ',', '.'); ?></div>
+</section>
+
 
         <section class="card">
             <?php /* Método de Pago */ ?>

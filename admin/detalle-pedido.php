@@ -1,6 +1,19 @@
 <?php
 require_once '../conexion.php';
 
+if (!isset($_SESSION['usuario'])) {
+    header("Location: ../login.php");
+    exit();
+}
+
+// Proteger acceso a usuarios no logueados
+// Solo permitir acceso a administradores
+if ($_SESSION['usuario']['rol'] !== 'admin') {
+    // Puedes redirigirlo a otra página, mostrar error o simplemente salir
+    echo "Acceso denegado. No tienes permisos para ver esta página.";
+    exit();
+}
+
 if (!isset($_GET['id'])) {
     echo "ID de pedido no proporcionado.";
     exit;

@@ -36,7 +36,6 @@ include 'include/header.php';
             </div>
             <div class="product__actions">
                 <a href="pagar_todo.php"><button class="product__button product__button--primary">COMPRAR</button></a>
-                <button class="product__button product__button--secondary">CARRITO</button>
             </div>
         </div>
     </div>
